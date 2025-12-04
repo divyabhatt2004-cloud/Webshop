@@ -1,0 +1,24 @@
+  body {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300 !important;
+  }
+
+  #headerNav a:hover {
+    color: rgb(63, 204, 105) !important;
+  }
+
+  #actionBtns{
+    position: absolute;
+    display: none !important;
+    top: 35%;
+  }
+
+  #productcard:hover  #actionBtns{
+     display: block !important;
+     transition: ease-in-out 6s;
+  }
+
+  .product-wap{
+  cursor: pointer;
+  }
+
