@@ -132,7 +132,6 @@ $CategoryResult = mysqli_query($conn, $CategoryQuery);
         </div>
         </form>
     </div>
-    </div>
     <?php
     include("./Footer.php");
     ?>

@@ -6,9 +6,13 @@ $result = mysqli_query($conn, $query);
 
 $cquery = "SELECT * FROM `categories`";
 $res = mysqli_query($conn, $cquery);
+
+$user_query = "SELECT * FROM `user`";
+$user_result = mysqli_query($conn, $user_query);
 ?>
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,6 +27,7 @@ $res = mysqli_query($conn, $cquery);
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
 </head>
+
 <body>
     <?php
     include("./Nav.php");
@@ -41,36 +46,44 @@ $res = mysqli_query($conn, $cquery);
                 </div>
             </div>
             <div class="col-md-8">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">First</th>
-                            <th scope="col">Last</th>
-                            <th scope="col">Handle</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>John</td>
-                            <td>Doe</td>
-                            <td>@social</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="card shadow">
+                    <div class="card-body">
+                        <div class="row text-end border-bottom pb-2">
+                            <div class=" offset-10 col-lg-2">
+                                <button class="btn btn-success"><a href="Register_User.php" class="text-white text-decoration-none">Create <i class="fa-solid fa-circle-plus"></i></a></button>
+                            </div>
+                        </div>
+                        <div>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Sno</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Password</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    $sno = 0;
+                                    while ($user_rows = mysqli_fetch_assoc($user_result)) {
+                                        $sno++;
+                                    ?>
+                                        <tr>
+                                            <td><?php echo   $sno; ?></td>
+                                            <td><?php echo   $user_rows['name']; ?></td>
+                                            <td><?php echo   $user_rows['email']; ?></td>
+                                            <td><?php echo   $user_rows['password']; ?></td>
+                                        </tr>
+                                    <?php
+                                    }
+                                    ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

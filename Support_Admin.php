@@ -54,8 +54,8 @@ $userresult = mysqli_query($conn, $userquery);
                                     <tr>
                                         <th>Sno</th>
                                         <th>Name</th>
-                                        <th>Subject</th>
                                         <th>Email</th>
+                                        <th>Subject</th>
                                         <th>Message</th>
                                         <th>Reply</th>
                                         <th>Action</th>
@@ -70,11 +70,11 @@ $userresult = mysqli_query($conn, $userquery);
                                         <tr>
                                             <td><?php echo   $sno; ?></td>
                                             <td><?php echo   $userrows['name']; ?></td>
-                                            <td><?php echo   $userrows['subject']; ?></td>
                                             <td><?php echo   $userrows['email']; ?></td>
+                                            <td><?php echo   $userrows['subject']; ?></td>
                                             <td><?php echo   $userrows['message']; ?></td>
                                             <td> <?php echo   $userrows['reply']; ?></td>
-                                            <td><a class="btn btn-success m-1" href="User_Update.php?id=<?php echo $userrows['id']; ?>">Update</a> <a class="btn btn-success m-1" href="User_Delete.php?id=<?php echo $userrows['id']; ?>">Delete</a></td>
+                                            <td><a class="text-success ms-2" href="Contact_Update.php?id=<?php echo $userrows['id']; ?>"><i class="fa-solid fa-pen"></i></a> <a class="text-danger ms-2" href="Contact_Delete.php?id=<?php echo $userrows['id']; ?>"><i class="fa-solid fa-trash-can"></i></a></td>
                                         </tr>
                                     <?php
                                     }

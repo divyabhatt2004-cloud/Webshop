@@ -26,7 +26,6 @@
          </div>
      </div>
  </nav>
- 
  <nav class="navbar navbar-expand-lg shadow">
      <div class="container">
          <a class="navbar-brand fs-1 text-success fw-medium" href="#">Zay</a>
@@ -60,7 +59,7 @@
                      <i class="fa-solid fa-magnifying-glass"></i>
                  </span>
                  <span class="me-2 p-1">
-                     <i class="fa-sharp fa-solid fa-cart-arrow-down"></i>
+                    <a  href="Product_Cart.php" class="text-black"><i class="fa-sharp fa-solid fa-cart-arrow-down"></i></a>
                  </span>
             
                  <span class="me-2 p-1">
@@ -69,10 +68,10 @@
                              <i class="fa-solid fa-user"></i>
                          </a>
                          <ul class="dropdown-menu">
-                             <li><a class="dropdown-item text-primary" href="#">
+                             <li><a class="dropdown-item text-success" href="Login_User.php">
                                      Login
                                  </a></li>
-                             <li><a class="dropdown-item text-primary" href="#">Register</a></li>
+                             <li><a class="dropdown-item text-success" href="Register_User.php">Register</a></li>
                          </ul>
                      </div>
                  </span>

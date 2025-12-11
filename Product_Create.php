@@ -43,7 +43,6 @@ if (isset($_POST['save']) && $_POST['save']) {
 }
     $categoryquery = "SELECT * FROM `categories`";
     $categorydata = mysqli_query($conn, $categoryquery);
- print_r($categorydata) ;
 ?>
 <!doctype html>
 <html lang="en">

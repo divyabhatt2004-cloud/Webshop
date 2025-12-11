@@ -75,7 +75,7 @@ $productresult = mysqli_query($conn, $productquery);
                                             <td><?php echo $productrows['quantity'] ?></td>
                                             <td><?php echo $productrows['category'] ?></td>
                                             <td><?php echo $productrows['price'] ?></td>
-                                            <td><a type="button" class="btn btn-success ms-1" href="Product_Update.php?id=<?php echo $productrows['id']; ?>">Update</a><a type="button" class="btn btn-success ms-1" href="Product_Delete.php?id=<?php echo $productrows['id']; ?>">Delete</a></td>
+                                            <td><a class="text-success ms-2" href="Product_Update.php?id=<?php echo $productrows['id']; ?>"><i class="fa-solid fa-pen"></i></a><a class="text-danger ms-2" href="Product_Delete.php?id=<?php echo $productrows['id']; ?>"><i class="fa-solid fa-trash-can"></i></a></td>
                                         </tr>
                                     <?php
                                     }

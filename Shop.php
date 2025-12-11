@@ -1,11 +1,11 @@
 <?php
 include('./Connect.php');
 
-$productquery = "SELECT * FROM `product`";
-$productresult = mysqli_query($conn, $productquery);
+$product_query = "SELECT * FROM `product`";
+$product_result = mysqli_query($conn, $product_query);
 
-$cquery = "SELECT * FROM `categories`";
-$res = mysqli_query($conn, $cquery);
+$category_query = "SELECT * FROM `categories`";
+$category_result = mysqli_query($conn, $category_query);
 ?>
 <!doctype html>
 <html lang="en">
@@ -32,53 +32,52 @@ $res = mysqli_query($conn, $cquery);
     include("./Nav.php");
     ?>
     <section class=" pt-5 pb-5">
+        <p id="demo"></p>
         <div class="container">
             <div class="row">
                 <div class="col-lg-4">
                     <div class="card shadow">
                         <div class="card-body">
-                            <a class="list-group-item border-0 text-success pb-2" href="Shop.php">Product</a>
-                            <div class="row">
-                                <div class="col-lg-8">
-                                    <a class="list-group-item text-success border-0 pb-2">Categories</a>
+                            <ul class="list-unstyled">
+                                <li>
+                                    <a class="d-flex justify-content-between text-decoration-none border-0 text-success pb-2" href="Shop.php">Product</a>
+                                </li>
+                                <li id="dropdown">
+                                    <a class="d-flex justify-content-between text-decoration-none text-success border-0 pb-2">Categories
+                                        <i class="fa-solid fa-circle-chevron-up text-black"></i>
+                                    </a>
+                                </li>
+                                <div id="catelist" class="row mb-1">
+                                    <ul class="list-unstyled">
+                                        <?php while ($category_rows = mysqli_fetch_assoc($category_result)) {
+                                        ?>
+                                            <li>
+                                                <?php echo $category_rows['category name'] ?>
+                                            </li>
+                                        <?php
+                                        } ?>
+                                    </ul>
                                 </div>
-                                <div class="col-lg-4 text-end pe-2" id="dropdown">
-                                    <i class="fa-solid fa-circle-chevron-up"></i>
+                                <li id="dropdown2">
+                                    <a class="d-flex justify-content-between text-decoration-none text-success border-0">Gender
+                                        <i class="fa-solid fa-circle-chevron-down text-black"></i>
+                                    </a>
+                                </li>
+                                <div id="genderlist" class="row d-none">
+                                    <ul class="list-unstyled">
+                                        <li class="row ms-1">Men</li>
+                                        <li class="row ms-1">Women</li>
+                                    </ul>
                                 </div>
-                            </div>
-                            <div id="catelist" class="row">
-                                <ul class="list-unstyled">
-                                    <?php while ($rows = mysqli_fetch_assoc($res)) {
-                                    ?>
-                                        <li>
-                                            <?php echo $rows['category name'] ?>
-                                        </li>
-                                    <?php
-                                    } ?>
-                                </ul>
-                            </div>
-                            <div class="row pb-2">
-                                <div class="col-lg-8">
-                                    <a class="list-group-item text-success border-0" href="categories.php">Gender</a>
-                                </div>
-                                <div class="col-lg-4 text-end pe-2" id="dropdown2">
-                                    <i class="fa-solid fa-circle-chevron-down"></i>
-                                </div>
-                            </div>
-                            <div id="genderlist" class="row d-none">
-                                <ul class="list-unstyled">
-                                    <li class="row ms-1">Men</li>
-                                    <li class="row ms-1">Women</li>
-                                </ul>
-                            </div>
+                            </ul>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-8">
                     <div class="container">
-                        <div class="row mb-3">
+                        <div class="row mb-3 mt-3">
                             <div class="col-6">
-                                <p class="h3 fw-lighter">All Men's Women's</p>
+                                <p class="h3 fw-light">All Men's Women's</p>
                             </div>
                             <div class="col-6">
                                 <select class="form-control " name="cate" id="cate">
@@ -90,36 +89,36 @@ $res = mysqli_query($conn, $cquery);
                         </div>
                         <div class="row text-center">
                             <?php
-                            while ($productrows = mysqli_fetch_assoc($productresult)) {
+                            while ($product_rows = mysqli_fetch_assoc($product_result)) {
                             ?>
-                                <div class="col-lg-4 mb-5" id="product">
+                                <div class="col-md-4 mb-5" id="product">
                                     <div class="card product-wap mb-4 rounded-0" id="productcard">
                                         <div class="position-relative">
-                                            <img src="./productimage/<?php echo $productrows['image']; ?>" class="card-img rounded-0 img-fluid">
+                                            <img src="./productimage/<?php echo $product_rows['image']; ?>" class="card-img rounded-0 img-fluid">
                                             <ul class="list-unstyled start-0 end-0" id="actionBtns">
-                                                <li id="heart">
-                                                    <button class="text-white bg-success opacity-75 p-2 border-0 mb-1 rounded">
-                                                        <i class="fa-regular fa-heart"></i>
-                                                    </button>
+                                                <li>
+                                                    <a class="text-white btn btn-success opacity-75 p-2 border-0 mb-1 rounded">
+                                                        <i class="fa-regular fa-heart" id="heart"></i>
+                                                    </a>
                                                 </li>
                                                 <li>
-                                                    <button class="text-white bg-success opacity-75 p-2 border-0 mb-1 rounded">
+                                                    <a href="./product_detail.php?id=<?php echo $product_rows['id']; ?>"
+                                                        class="text-white btn btn-success opacity-75 p-2 border-0 mb-1 rounded">
                                                         <i class="fa-solid fa-eye"></i>
-                                                    </button>
+                                                    </a>
                                                 </li>
                                                 <li>
-                                                    <button class="text-white bg-success opacity-75 p-2 border-0 mb-1 rounded">
+                                                    <a class="text-white btn btn-success opacity-75 p-2 border-0 mb-1 rounded" href="add_to_cart.php?id=<?php echo $product_rows['id']; ?>">
                                                         <i class="fa-solid fa-cart-plus"></i>
-                                                    </button>
+                                                    </a>
                                                 </li>
-                                                <!-- #region<li> <i class="fa-solid fa-heart"></i>top: 39%!important;</li>-->
                                             </ul>
                                         </div>
                                         <div class="card-body p-2 bg-white w-100 h-100">
                                             <div class="row">
                                                 <div class="col-lg-8">
-                                                    <p class=" h3 text-start card-title fw-light"><?php echo $productrows['product name']; ?></p>
-                                                    <p class="card-text text-start"><?php echo $productrows['description']; ?></p>
+                                                    <p class=" h3 text-start card-title fw-light"><?php echo $product_rows['product name']; ?></p>
+                                                    <p class="card-text text-start"><?php echo $product_rows['description']; ?></p>
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -132,7 +131,7 @@ $res = mysqli_query($conn, $cquery);
                                                 </div>
                                             </div>
                                             <div class="row text-center fw-lighter pt-1">
-                                                <p class="h6 fw-light"><?php echo '$' . $productrows['price'] . '.00'; ?></p>
+                                                <p class="h6 fw-light"><?php echo '$' . $product_rows['price'] . '.00'; ?></p>
                                             </div>
                                         </div>
                                     </div>
@@ -160,11 +159,20 @@ $res = mysqli_query($conn, $cquery);
                 $(this).toggleClass('fa-circle-chevron-down fa-circle-chevron-up')
                 $('#genderlist').toggleClass('d-none')
             })
-            $('#productcard ul').on('click', function() {
-                $('#heart i').toggleClass('fa-regular fa-solid')
+            $('#heart').on('click', function() {
+                $(this).toggleClass('fa-regular fa-solid')
             })
         })
+
+
+        //document.getElementById("cartbtn").addEventListener("click", cart());
+        //let id = document.getElementsByTagName("a")[0].id;
+        //document.getElementById("demo").innerHTML = id;
+        // document.getElementById("demo").innerHTML =
+        //"The full URL of this page is:<br>" + window.location.href;
+        //window.location.href + id = document.getElementsByTagName('a')[5].id
     </script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>

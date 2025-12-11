@@ -159,7 +159,7 @@
         </div>
         <div class="container">
             <div class="row text-center pt-5">
-                <div class="col-lg-4 mb-5">
+                <div class="col-md-4 mb-5">
                     <div class="card w-40 h-100 pb-10">
                         <img src="./images/14.jpg" class="card-img-top" alt="14">
                         <div class="card-body bg-white">
@@ -183,7 +183,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 mb-5">
+                <div class="col-md-4 mb-5">
                     <div class="card w-40 h-100 pb-10">
                         <img src="./images/16.jpg" class="card-img-top" alt="16">
                         <div class="card-body bg-white">
@@ -206,7 +206,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 mb-5">
+                <div class="col-md-4 mb-5">
                     <div class="card w-40 h-100 pb-10">
                         <img src="./images/15.jpg" class="card-img-top" alt="15">
                         <div class="card-body bg-white">

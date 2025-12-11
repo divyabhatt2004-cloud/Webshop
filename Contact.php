@@ -7,11 +7,11 @@ if (isset($_POST['submit_contact']) && $_POST['submit_contact']) {
   $subject = $_POST['subject'];
   $mesaage = $_POST['message'];
 
-  $userquery = "INSERT INTO `contact_us`(`name`, `email`, `subject`, `message`) VALUES ('$name','$email','$subject','$mesaage')";
+  $contact_query = "INSERT INTO `contact_us`(`name`, `email`, `subject`, `message`) VALUES ('$name','$email','$subject','$mesaage')";
 
-  $userresult = mysqli_query($conn, $userquery);
+  $contact_result = mysqli_query($conn, $contact_query);
 
-  if ($userresult) {
+  if ($contact_result) {
     echo "submittion failed";
   }
 }

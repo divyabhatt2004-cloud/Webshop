@@ -69,7 +69,7 @@ $categoryresult = mysqli_query($conn, $categoryquery);
                                             <td><?php echo $categoryrows['category name'] ?></td>
                                             <td><?php echo $categoryrows['category type'] ?></td>
                                             <td><?php echo $categoryrows['description'] ?></td>
-                                            <td><a type="button" class="btn btn-success ms-1" href="Category_Update.php?id=<?php echo $categoryrows['id']; ?>">Update</a><a type="button" class="btn btn-success ms-1" href="Categaory_Delete.php?id=<?php echo $categoryrows['id']; ?>">Delete</a></td>
+                                            <td><a class="text-success ms-2" href="Category_Update.php?id=<?php echo $categoryrows['id']; ?>"><i class="fa-solid fa-pen"></i></a><a class="text-danger ms-2" href="Categaory_Delete.php?id=<?php echo $categoryrows['id']; ?>"><i class="fa-solid fa-trash-can"></i></a></td>
                                         </tr>
                                     <?php
                                     }
