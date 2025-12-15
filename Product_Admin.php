@@ -58,6 +58,7 @@ $productresult = mysqli_query($conn, $productquery);
                                         <th>Quantity</th>
                                         <th>Category</th>
                                         <th>Price</th>
+                                        <th>GST</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -75,6 +76,7 @@ $productresult = mysqli_query($conn, $productquery);
                                             <td><?php echo $productrows['quantity'] ?></td>
                                             <td><?php echo $productrows['category'] ?></td>
                                             <td><?php echo $productrows['price'] ?></td>
+                                            <td><?php echo $productrows['gst'] ?></td>
                                             <td><a class="text-success ms-2" href="Product_Update.php?id=<?php echo $productrows['id']; ?>"><i class="fa-solid fa-pen"></i></a><a class="text-danger ms-2" href="Product_Delete.php?id=<?php echo $productrows['id']; ?>"><i class="fa-solid fa-trash-can"></i></a></td>
                                         </tr>
                                     <?php
