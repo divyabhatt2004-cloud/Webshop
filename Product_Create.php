@@ -8,6 +8,7 @@ if (isset($_POST['save']) && $_POST['save']) {
     $quantity = $_POST['quanity'];
     $category = $_POST['cate'];
     $price = $_POST['price'];
+    $gst = $_POST['gst'];
 
     $imageArr = $_FILES['proimage'];
     if (is_array($imageArr)) {
@@ -32,17 +33,15 @@ if (isset($_POST['save']) && $_POST['save']) {
     }
 
 
-    $productquery = " INSERT INTO `product`(`product name`,`image`,`description`, `quantity`, `category`, `price`) VALUES ('$product_name','$filename','$description','$quantity','$category','$price')";
+    $productquery = " INSERT INTO `product`(`product name`,`image`,`description`, `quantity`, `category`, `price`,`gst`) VALUES ('$product_name','$filename','$description','$quantity','$category','$price','$gst')";
 
     $productresult = mysqli_query($conn, $productquery);
     if ($productresult) {
         header("Location:./Product_Admin.php");
     }
-
-
 }
-    $categoryquery = "SELECT * FROM `categories`";
-    $categorydata = mysqli_query($conn, $categoryquery);
+$categoryquery = "SELECT * FROM `categories`";
+$categorydata = mysqli_query($conn, $categoryquery);
 ?>
 <!doctype html>
 <html lang="en">
@@ -102,11 +101,11 @@ if (isset($_POST['save']) && $_POST['save']) {
                         <label for="cate" class="form-label">Categories</label>
                         <div>
                             <select class="form-select" name="cate" id="cate">
-                            <?php while ($categoryrow = mysqli_fetch_assoc($categorydata)) {
-                            ?>
-                                <option value="<?php echo $categoryrow['id']; ?>"><?php echo $categoryrow['category name']; ?></option>
-                            <?php
-                            } ?>
+                                <?php while ($categoryrow = mysqli_fetch_assoc($categorydata)) {
+                                ?>
+                                    <option value="<?php echo $categoryrow['id']; ?>"><?php echo $categoryrow['category name']; ?></option>
+                                <?php
+                                } ?>
                             </select>
                         </div>
                     </div>
@@ -118,9 +117,13 @@ if (isset($_POST['save']) && $_POST['save']) {
                             <input type="text" class="form-control" name="price" id="price" placeholder="Price" required>
                         </div>
                     </div>
-                    <div class="col-6 text-end pt-2 mt-4">
-                        <input type="submit" class="btn btn-success text-white fs-5" name="save" value="SAVE"></input>
+                    <div class="col-lg-6 col-md-4">
+                        <label for="gst" class="form-label">GST</label>
+                        <input type="text" class="form-control" name="gst" id="gst" placeholder="GST" required>
                     </div>
+                </div>
+                <div class="col-6 offset-6 text-end pt-2 mt-4">
+                    <input type="submit" class="btn btn-success text-white fs-5" name="save" value="SAVE"></input>
                 </div>
             </form>
         </div>
