@@ -1,8 +1,9 @@
   body {
     font-family: 'Roboto', sans-serif;
     font-weight: 300 !important;
+    
   }
-
+  
   #headerNav a:hover {
     color: rgb(63, 204, 105) !important;
   }
@@ -21,4 +22,4 @@
   .product-wap{
   cursor: pointer;
   }
-
+ 
