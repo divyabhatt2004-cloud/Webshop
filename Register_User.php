@@ -6,15 +6,19 @@ if (isset($_POST['save_user']) && $_POST['save_user']) {
   $user_name    = $_POST['user_name'];
   $user_email   = $_POST['user_email'];
   $user_password = $_POST['user_password'];
+  $userConfirm_password =  $_POST['confirmUser_password'];
   
-
-  $user_query = "INSERT INTO `user`(`name`, `email`, `password`) VALUES ('$user_name','$user_email','$user_password')";
+if($user_password == $userConfirm_password ){
+  $user_query = "INSERT INTO `user`(`name`, `email`, `password`, `confirm_password`) VALUES ('$user_name','$user_email','$user_password','$userConfirm_password')";
 
   $user_result = mysqli_query($conn, $user_query);
 
   if (!$user_result) {
     echo "submittion failed";
   }
+} else{
+    echo 'Password not match';
+}
 }
 ?>
 <!doctype html>
@@ -90,6 +94,13 @@ if (isset($_POST['save_user']) && $_POST['save_user']) {
                                             <label for="user_password" class="form-label">Password</label>
                                             <input type="password" class="form-control mb-3" name="user_password"
                                                 id="user_password" placeholder="Password" required>
+                                        </div>
+                                    </div>
+                                    <div class="row justify-content-center mb-2">
+                                        <div class="col-12">
+                                            <label for="confirmUser_password" class="form-label">Confirm Password</label>
+                                            <input type="password" class="form-control mb-3" name="confirmUser_password"
+                                                id="confirmUser_password" placeholder="Confirm Password" required>
                                         </div>
                                     </div>
                                     <div class="row justify-content-center mb-2">
