@@ -52,6 +52,7 @@ if (isset($_POST['update_contact']) && $_POST['update_contact']) {
         <div class="row text-center pb-3">
             <p class="h1 fw light">UPDATE</p>
         </div>
+        
         <div class="row justify-content-center pb-5">
             <form class="col-9  ms-10" method="post">
                 <div class="row">
