@@ -64,7 +64,7 @@ $productdetail_row = mysqli_fetch_assoc($Productdetail_result);
                                             type="button" id="quantity_minus"><i class="fa-solid fa-minus text-success"></i>
                                         </button>
 
-                                        <input disabled class="form-control text-center quantityInput"
+                                        <input readonly class="form-control text-center quantityInput"
                                             data-id="<?php echo $productdetail_row['id'] ?>" data-quantity="1"
                                             value="1">
 
@@ -72,7 +72,7 @@ $productdetail_row = mysqli_fetch_assoc($Productdetail_result);
                                     </div>
                                 </div>
                             </div>
-                            <a class="btn btn-success w-100" href="add_to_cart.php?id=<?php echo $productdetail_row['id']; ?>?quantity=data-quantity">ADD TO CART</a>
+                            <a class="btn btn-success w-100 add_to_cart" href="add_to_cart.php?id=<?php echo $productdetail_row['id']; ?>&quantity=<?php echo $productdetail_row['quantity']; ?>">ADD TO CART</a>
                         </div>
                     </div>
                 </div>
@@ -85,23 +85,30 @@ $productdetail_row = mysqli_fetch_assoc($Productdetail_result);
     <script>
         $(function() {
             $('#quantity_minus').on('click', function() {
-                let quantity = $('.quantityInput').data('quantity');
-                if (quantity > 1) {
-                    let newQuantity = quantity - 1;
-                    $('.quantityInput').attr('data-quantity', newQuantity);
-                    $('.quantityInput').data('quantity', newQuantity);
-                    $('.quantityInput').val(newQuantity)
+         
+                let parent = $(this).parent();
+                let input = parent.find('.quantityInput');
+                let id = input.data('id');
 
-                }
+                let quantity = parseInt(input.val(), 10) || 0;
+                let newQuantity = quantity - 1;
+
+                input.val(newQuantity);
+                $('.add_to_cart').attr('href',`add_to_cart.php?id=${id}&quantity=${newQuantity}`);
             })
 
-            $('#quantity_plus').on('click', function() {
-                let quantity = $('.quantityInput').data('quantity');
+            $('#quantity_plus').on('click', function () {
+                let parent = $(this).parent();
+                let input = parent.find('.quantityInput');
+                let id = input.data('id');
+
+                let quantity = parseInt(input.val(), 10) || 0;
                 let newQuantity = quantity + 1;
-                $('.quantityInput').attr('data-quantity', newQuantity);
-                $('.quantityInput').data('quantity', newQuantity);
-                $('.quantityInput').val(newQuantity);
-            })
+
+                input.val(newQuantity);
+                $('.add_to_cart').attr('href',`add_to_cart.php?id=${id}&quantity=${newQuantity}`);
+            });
+
         })
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
