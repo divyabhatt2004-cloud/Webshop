@@ -15,6 +15,7 @@ if (isset($_POST['update_product']) && $_POST['update_product']) {
     $quantity = $_POST['quanity'];
     $category = $_POST['cate'];
     $price = $_POST['price'];
+    $gst = $_POST['gst'];
 
     if (is_array($imageArr)) {
 
@@ -37,7 +38,7 @@ if (isset($_POST['update_product']) && $_POST['update_product']) {
         }
     }
 
-    $update_Productquery = "UPDATE `product` SET `product name`='$product_name',`image`='$filename',`description`='$description',`quantity`='$quantity',`category`='$category',`price`='$price' WHERE `id`= $id ";
+    $update_Productquery = "UPDATE `product` SET `product name`='$product_name',`image`='$filename',`description`='$description',`quantity`='$quantity',`category`='$category',`price`='$price',`gst`='$gst' WHERE `id`= $id ";
     $update_Productresult = mysqli_query($conn, $update_Productquery);
     if ($update_Productresult) {
         header("Location:./Product_Admin.php");
@@ -125,12 +126,16 @@ $CategoryResult = mysqli_query($conn, $CategoryQuery);
                             <input type="text" class="form-control" name="price" id="price" placeholder="Price" value="<?php echo $Productdata['price'] ?>" required>
                         </div>
                     </div>
-                    <div class="col-6 text-end pt-2 mt-4">
-                        <input type="submit" class="btn btn-success text-white fs-5" name="update_product" value="SAVE"></input>
+                    <div class="col-lg-6 col-md-4">
+                        <label for="gst" class="form-label">GST</label>
+                        <input type="text" class="form-control" name="gst" id="gst" placeholder="GST" value="<?php echo $Productdata['gst']?>" required>
                     </div>
                 </div>
+                <div class="col-6 offset-6 text-end pt-2 mt-4">
+                    <input type="submit" class="btn btn-success text-white fs-5" name="update_product" value="SAVE"></input>
+                </div>
+            </form>
         </div>
-        </form>
     </div>
     <?php
     include("./Footer.php");
