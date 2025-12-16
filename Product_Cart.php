@@ -87,7 +87,7 @@ $Cart_Result = mysqli_query($conn, $Cart_Query);
 
             <div class="row">
                 <div class="col-4 offset-8">
-                    <div class="card">
+                    <div class="card mb-5">
                         <div class="card-body">
                             <div class="row mb-2">
                                 <div class="col-6 text-start">
@@ -97,20 +97,19 @@ $Cart_Result = mysqli_query($conn, $Cart_Query);
                                 </div>
                                 <div class="col-6 text-end">
                                     <div>
-                                        <?php echo $sub_amount; ?>
+                                        <?php echo '$'.$sub_amount.'.00'; ?>
                                     </div>
                                     <div>
-                                        <?php echo $gst_amount; ?>
+                                        <?php echo '$'.$gst_amount.'.00'; ?>
                                     </div>
                                     <div>
-                                        <?php echo $sub_amount + $gst_amount; ?>
+                                        <?php echo '$'.$sub_amount + $gst_amount.'.00'; ?>
                                     </div>
                                     <div class="mt-2">
-                                        <a type="button" class="btn btn-success text-white" value="Checkout">Checkout</a>
+                                        <a  class="btn btn-success text-white" href="Cart_Checkout.php">Checkout</a>
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
