@@ -163,16 +163,7 @@ $category_result = mysqli_query($conn, $category_query);
                 $(this).toggleClass('fa-regular fa-solid')
             })
         })
-
-
-        //document.getElementById("cartbtn").addEventListener("click", cart());
-        //let id = document.getElementsByTagName("a")[0].id;
-        //document.getElementById("demo").innerHTML = id;
-        // document.getElementById("demo").innerHTML =
-        //"The full URL of this page is:<br>" + window.location.href;
-        //window.location.href + id = document.getElementsByTagName('a')[5].id
     </script>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
