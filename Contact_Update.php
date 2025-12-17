@@ -1,10 +1,10 @@
 <?php
-include "./Connect.php";
+include "./connect.php";
 include('./header_base.php');
 include("./nav.php");
 
 if (!$_SESSION['isLogin']) {
-    header('Location:Login_User.php');
+    header('Location:login.php');
 }
 
 $id = $_GET["id"];
@@ -24,7 +24,7 @@ if (isset($_POST['update_contact']) && $_POST['update_contact']) {
     $resultuserupdate = mysqli_query($conn, $queryuserupdate);
 
     if ($resultuserupdate) {
-        header("Location:./Support_Admin.php");
+        header("Location:./support_Admin.php");
     } else {
         echo 'failed';
     }
