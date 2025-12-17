@@ -1,9 +1,9 @@
 <?php
-include "./Connect.php";
+include "./connect.php";
 
 if(!$_SESSION['isLogin'])
 {
-    header('Location:Login_User.php');
+    header('Location:login.php');
 }
 
 $id = $_GET["id"];
@@ -12,7 +12,7 @@ $userquery = "DELETE FROM `contact_us` WHERE `id`= $id";
 $userresult = mysqli_query($conn, $userquery);
 
 if ($userresult) {
-    header("Location:./Support_Admin.php");
+    header("Location:./support_Admin.php");
 } else {
     echo 'failed';
 }
