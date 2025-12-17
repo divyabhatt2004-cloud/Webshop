@@ -4,7 +4,7 @@ include('./header_base.php');
 include("./nav.php");
 
 if (!$_SESSION['isLogin']) {
-    header('Location:Login_User.php');
+    header('Location:login.php');
 }
 
 $categoryquery = "SELECT * FROM `categories`";
@@ -15,11 +15,10 @@ $categoryresult = mysqli_query($conn, $categoryquery);
         <div class="col-lg-4">
             <div class="card shadow">
                 <div class="card-body">
-                    <a class="list-group-item border-0 text-success mb-1" href="Product_Admin.php">Product</a>
-                    <a class="list-group-item text-success border-0 mb-1" href="Categories_Admin.php">Categories</a>
-                    <a class="list-group-item text-success border-0 mb-1" href="Support_Admin.php">Support</a>
+                    <a class="list-group-item border-0 text-success mb-1" href="product_Admin.php">Product</a>
+                    <a class="list-group-item text-success border-0 mb-1" href="categories_Admin.php">Categories</a>
+                    <a class="list-group-item text-success border-0 mb-1" href="support_Admin.php">Support</a>
                     <a class="list-group-item text-success border-0 mb-1" href="#">Orders</a>
-                    <a class="list-group-item text-success border-0 mb-1" href="#">Help?</a>
                 </div>
             </div>
         </div>
