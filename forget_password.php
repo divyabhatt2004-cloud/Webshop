@@ -1,23 +1,6 @@
-<!doctype html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
-</head>
-
-<body>
+<?php
+include('./header_base.php');
+?>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-6">
@@ -59,7 +42,7 @@
                                     <div class="row justify-content-center">
                                         <div class="col-12 text-center">
                                             Not a member?
-                                            <a href="Register_User.php">Register</a>
+                                            <a href="register.php">Register</a>
                                         </div>
                                     </div>
                                 </form>
@@ -70,6 +53,6 @@
             </div>
         </div>
     </div>
-</body>
-
-</html>
+<?php
+include("./footer_base.php");
+?>
