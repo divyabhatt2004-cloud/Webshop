@@ -1,10 +1,10 @@
 <?php
-include('./Connect.php');
+include('./connect.php');
 include('./header_base.php');
 include("./nav.php");
 
 if (!$_SESSION['isLogin']) {
-    header('Location:Login_User.php');
+    header('Location:login.php');
 }
 
 if (isset($_POST['savecate']) && $_POST['savecate']) {
@@ -18,7 +18,7 @@ if (isset($_POST['savecate']) && $_POST['savecate']) {
     $categoryresult = mysqli_query($conn, $categoryquery);
 
     if ($categoryresult) {
-        header("Location:./Categories_Admin.php");
+        header("Location:./categories_Admin.php");
     }
 }
 ?>
