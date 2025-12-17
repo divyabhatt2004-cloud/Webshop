@@ -1,9 +1,9 @@
 <?php
-include('./Connect.php');
+include('./connect.php');
 
 if(!$_SESSION['isLogin'])
 {
-    header('Location:Login_User.php');
+    header('Location:login.php');
 }
 
 $id = $_GET['id'];
@@ -11,7 +11,7 @@ $cart_query = "DELETE FROM `cart` WHERE `id`= $id";
 $cart_result = mysqli_query($conn, $cart_query);
 
 if ($cart_result) {
-    header("Location:./Product_Cart.php");
+    header("Location:./product_Cart.php");
 } else {
     echo 'failed';
 }
