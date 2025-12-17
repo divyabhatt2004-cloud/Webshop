@@ -1,11 +1,11 @@
 <?php
-include('./Connect.php');
+include('./connect.php');
 include('./header_base.php');
 include("./nav.php");
 
 if(!$_SESSION['isLogin'])
 {
-    header('Location:Login_User.php');
+    header('Location:login.php');
 }
 
 $id = $_GET['id'];
@@ -47,7 +47,7 @@ if (isset($_POST['update_product']) && $_POST['update_product']) {
     $update_Productquery = "UPDATE `product` SET `product name`='$product_name',`image`='$filename',`description`='$description',`quantity`='$quantity',`category`='$category',`price`='$price',`gst`='$gst' WHERE `id`= $id ";
     $update_Productresult = mysqli_query($conn, $update_Productquery);
     if ($update_Productresult) {
-        header("Location:./Product_Admin.php");
+        header("Location:./product_Admin.php");
     }
 }
 
