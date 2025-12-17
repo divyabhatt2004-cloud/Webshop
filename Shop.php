@@ -1,5 +1,5 @@
 <?php
-include('./Connect.php');
+include('./connect.php');
 include('./header_base.php');
 include("./nav.php");
 
