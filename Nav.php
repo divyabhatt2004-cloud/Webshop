@@ -49,9 +49,16 @@
                      <li class="nav-item px-5">
                          <a class="nav-link text-black" href="Contact.php">Contact</a>
                      </li>
-                     <li class="nav-item px-5">
-                         <a class="nav-link text-black" href="Admin.php">Admin</a>
-                     </li>
+                     <?php
+                        if ($_SESSION["user_type"] == 'admin') {
+                        ?>
+                         <li class="nav-item px-5">
+                             <a class="nav-link text-black" name="admin" href="Admin.php">Admin</a>
+                         </li>
+                     <?php
+                        }
+                        ?>
+
                  </ul>
              </div>
              <div class="d-flex my-2 mb-2 align-items-center">
@@ -59,20 +66,29 @@
                      <i class="fa-solid fa-magnifying-glass"></i>
                  </span>
                  <span class="me-2 p-1">
-                    <a  href="Product_Cart.php" class="text-black"><i class="fa-sharp fa-solid fa-cart-arrow-down"></i></a>
+                     <a href="Product_Cart.php" class="text-black"><i class="fa-sharp fa-solid fa-cart-arrow-down"></i></a>
                  </span>
-            
+
                  <span class="me-2 p-1">
                      <div class="dropdown">
                          <a class="btn btn-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                              <i class="fa-solid fa-user"></i>
                          </a>
-                         <ul class="dropdown-menu">
-                             <li><a class="dropdown-item text-success" href="Login_User.php">
-                                     Login
-                                 </a></li>
-                             <li><a class="dropdown-item text-success" href="Register_User.php">Register</a></li>
-                         </ul>
+                         <?php if ($_SESSION['isLogin']) {
+                            ?>
+                             <ul class="dropdown-menu">
+                                 <li><a class="dropdown-item text-success" href="#">Account</a></li>
+                                 <li><a class="dropdown-item text-success" href="logout.php">Log out</a></li>
+                             </ul>
+                         <?php
+                            } else {
+                            ?>
+                             <ul class="dropdown-menu">
+                                 <li><a class="dropdown-item text-success" href="login.php">Login</a></li>
+                                 <li><a class="dropdown-item text-success" href="register.php">Register</a></li>
+                             </ul>
+                         <?php
+                            } ?>
                      </div>
                  </span>
              </div>
