@@ -1,10 +1,10 @@
 <?php
-include "./Connect.php";
+include "./connect.php";
 include('./header_base.php');
 
 if(!$_SESSION['isLogin'])
 {
-    header('Location:Login_User.php');
+    header('Location:login.php');
 }
 
 //$user_query = "SELECT * FROM `user`";
