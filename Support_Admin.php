@@ -1,10 +1,10 @@
 <?php
-include "./Connect.php";
+include "./connect.php";
 include('./header_base.php');
 include("./nav.php");
 
 if (!$_SESSION['isLogin']) {
-    header('Location:Login_User.php');
+    header('Location:login.php');
 }
 
 $userquery = 'SELECT * FROM `contact_us`';
@@ -15,11 +15,10 @@ $userresult = mysqli_query($conn, $userquery);
         <div class="col-lg-4">
             <div class="card shadow">
                 <div class="card-body">
-                    <a class="list-group-item border-0 text-success mb-1" href="Product_Admin.php">Product</a>
-                    <a class="list-group-item text-success border-0 mb-1" href="Categories_Admin.php">Categories</a>
-                    <a class="list-group-item text-success border-0 mb-1" href="Support_Admin.php">Support</a>
+                    <a class="list-group-item border-0 text-success mb-1" href="product_Admin.php">Product</a>
+                    <a class="list-group-item text-success border-0 mb-1" href="categories_Admin.php">Categories</a>
+                    <a class="list-group-item text-success border-0 mb-1" href="support_Admin.php">Support</a>
                     <a class="list-group-item text-success border-0 mb-1" href="#">Orders</a>
-                    <a class="list-group-item text-success border-0 mb-1" href="#">Help?</a>
                 </div>
             </div>
         </div>
@@ -57,7 +56,7 @@ $userresult = mysqli_query($conn, $userquery);
                                         <td><?php echo   $userrows['subject']; ?></td>
                                         <td><?php echo   $userrows['message']; ?></td>
                                         <td> <?php echo   $userrows['reply']; ?></td>
-                                        <td><a class="text-success ms-2" href="Contact_Update.php?id=<?php echo $userrows['id']; ?>"><i class="fa-solid fa-pen"></i></a> <a class="text-danger ms-2" href="Contact_Delete.php?id=<?php echo $userrows['id']; ?>"><i class="fa-solid fa-trash-can"></i></a></td>
+                                        <td><a class="text-success ms-2" href="contact_Update.php?id=<?php echo $userrows['id']; ?>"><i class="fa-solid fa-pen"></i></a> <a class="text-danger ms-2" href="Contact_Delete.php?id=<?php echo $userrows['id']; ?>"><i class="fa-solid fa-trash-can"></i></a></td>
                                     </tr>
                                 <?php
                                 }
