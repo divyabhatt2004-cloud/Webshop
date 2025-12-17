@@ -1,11 +1,11 @@
 <?php
 
-include('./Connect.php');
+include('./connect.php');
 include('./header_base.php');
 include("./nav.php");
 
 if (!$_SESSION['isLogin']) {
-    header('Location:Login_User.php');
+    header('Location:login.php');
 }
 
 $id = $_GET['id'];
@@ -22,7 +22,7 @@ if (isset($_POST['saveEcate']) && $_POST['saveEcate']) {
     $categoryUpdatequery = "UPDATE `categories` SET `category name`='$catename',`category type`='$catetype',`description`='$catedesc' WHERE `id`= $id ";
     $categoryUpdateresult = mysqli_query($conn, $categoryUpdatequery);
     if ($categoryUpdateresult) {
-        header("Location:./Categories_Admin.php");
+        header("Location:./categories_Admin.php");
     }
 }
 ?>
