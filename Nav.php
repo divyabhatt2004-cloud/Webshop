@@ -38,27 +38,26 @@
              <div class="mx-auto">
                  <ul class="navbar-nav" id="headerNav">
                      <li class="nav-item px-5">
-                         <a class="nav-link text-black" aria-current="page" href="Index.php">Home</a>
+                         <a class="nav-link text-black" aria-current="page" href="index.php">Home</a>
                      </li>
                      <li class="nav-item px-5">
-                         <a class="nav-link text-black" href="About.php">About</a>
+                         <a class="nav-link text-black" href="about.php">About</a>
                      </li>
                      <li class="nav-item px-5">
-                         <a class="nav-link text-black" href="Shop.php">Shop</a>
+                         <a class="nav-link text-black" href="shop.php">Shop</a>
                      </li>
                      <li class="nav-item px-5">
-                         <a class="nav-link text-black" href="Contact.php">Contact</a>
+                         <a class="nav-link text-black" href="contact.php">Contact</a>
                      </li>
                      <?php
                         if ($_SESSION["user_type"] == 'admin') {
                         ?>
                          <li class="nav-item px-5">
-                             <a class="nav-link text-black" name="admin" href="Admin.php">Admin</a>
+                             <a class="nav-link text-black" name="admin" href="admin.php">Admin</a>
                          </li>
                      <?php
                         }
                         ?>
-
                  </ul>
              </div>
              <div class="d-flex my-2 mb-2 align-items-center">
@@ -74,7 +73,7 @@
                          <a class="btn btn-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                              <i class="fa-solid fa-user"></i>
                          </a>
-                         <?php if ($_SESSION['isLogin']) {
+                         <?php  if ($_SESSION['isLogin']) {
                             ?>
                              <ul class="dropdown-menu">
                                  <li><a class="dropdown-item text-success" href="#">Account</a></li>
