@@ -1,5 +1,5 @@
 <?php
-include "./Connect.php";
+include "./connect.php";
 include('./header_base.php');
 
 if (isset($_POST["login_user"]) && $_POST["login_user"]) {
@@ -20,7 +20,7 @@ if (isset($_POST["login_user"]) && $_POST["login_user"]) {
         $_SESSION['isLogin'] = true;
 
 
-        header('location:Index.php');
+        header('location:index.php');
     } else {
         $_SESSION['isLogin'] = false;
         echo 'error';
