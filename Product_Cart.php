@@ -1,10 +1,10 @@
 <?php
-include('./Connect.php');
+include('./connect.php');
 include('./header_base.php');
 include("./nav.php");
 
 if (!$_SESSION['isLogin']) {
-    header('Location:Login_User.php');
+    header('Location:login.php');
 }
 
 $Cart_Query = "SELECT * FROM `cart`";
@@ -87,7 +87,7 @@ $Cart_Result = mysqli_query($conn, $Cart_Query);
                                     <?php echo '$' . $sub_amount + $gst_amount . '.00'; ?>
                                 </div>
                                 <div class="mt-2">
-                                    <a class="btn btn-success text-white" href="Cart_Checkout.php?id=<?php echo $_SESSION["user_id"]; ?>">Checkout</a>
+                                    <a class="btn btn-success text-white" href="cart_Checkout.php?id=<?php echo $_SESSION["user_id"]; ?>">Checkout</a>
                                 </div>
                             </div>
                         </div>
