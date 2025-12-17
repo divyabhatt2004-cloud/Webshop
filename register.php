@@ -1,5 +1,5 @@
 <?php
-include "./Connect.php";
+include "./connect.php";
 include('./header_base.php');
 
 $error = null;
@@ -27,14 +27,16 @@ if (isset($_POST['save_user']) && $_POST['save_user']) {
             $userLogin_result = mysqli_query($conn, $userLogin_query);
             $userLogin_row = mysqli_fetch_assoc($userLogin_result);
 
-            $user_detailQuery = "INSERT INTO `user_details`(`user_name`, `user_email`)VALUES ('$user_name','$user_email')";
+            $user_id = $userLogin_row['id'];
+
+            $user_detailQuery = "INSERT INTO `user_details`(`user_id`,`user_name`, `user_email`)VALUES ('$user_id','$user_name','$user_email')";
             $user_detailResult = mysqli_query($conn, $user_detailQuery);
 
             if ($user_result) {
 
                 $_SESSION["user_id"] = $userLogin_row['id'];
                 $_SESSION['isLogin'] = true;
-                header('location:Index.php');
+                header('location:index.php');
             }
         } else {
             $error = "Password doesn't match";
