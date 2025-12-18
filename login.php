@@ -19,8 +19,7 @@ if (isset($_POST["login_user"]) && $_POST["login_user"]) {
 
         $_SESSION['isLogin'] = true;
 
-
-        header('location:index.php');
+        header('Location:index.php');
     } else {
         $_SESSION['isLogin'] = false;
         echo 'error';
