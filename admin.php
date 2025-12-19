@@ -1,4 +1,5 @@
 <?php
+
 include('./header_base.php');
 
 // if (!$_SESSION['isLogin']) {
@@ -83,5 +84,6 @@ $user_result = mysqli_query($conn, $user_query);
     </div>
 </div>
 <?php
+
 include("./footer_base.php");
 ?>
