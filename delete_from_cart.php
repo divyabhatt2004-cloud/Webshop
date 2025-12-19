@@ -11,7 +11,7 @@ $cart_query = "DELETE FROM `cart` WHERE `id`= $id";
 $cart_result = mysqli_query($conn, $cart_query);
 
 if ($cart_result) {
-    header("Location:./product_Cart.php");
+    header("Location:./product_cart.php");
 } else {
     echo 'failed';
 }

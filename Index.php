@@ -1,7 +1,5 @@
 <?php
-include('./connect.php');
 include('./header_base.php');
-include("./nav.php");
 ?>
 <div class="container-fluid bg-opacity-50" style="background-color: rgb(238, 238, 241);">
     <div id="carouselExample" class="carousel slide carousel-dark" data-bs-ride="carousel">
@@ -215,6 +213,5 @@ include("./nav.php");
     </div>
 </div>
 <?php
-include("./footer.php");
 include("./footer_base.php");
 ?>

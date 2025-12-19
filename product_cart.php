@@ -1,16 +1,7 @@
 <?php
-include('./connect.php');
 include('./header_base.php');
-include("./nav.php");
-
-if (!$_SESSION['isLogin']) {
-    header('Location:login.php');
-}
-
 $Cart_Query = "SELECT * FROM `cart`";
 $Cart_Result = mysqli_query($conn, $Cart_Query);
-
-
 ?>
 <section>
     <div class="container">
@@ -98,6 +89,5 @@ $Cart_Result = mysqli_query($conn, $Cart_Query);
     </div>
 </section>
 <?php
-include("./footer.php");
 include("./footer_base.php");
 ?>

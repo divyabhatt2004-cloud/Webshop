@@ -44,7 +44,7 @@ if (isset($_POST['save']) && $_POST['save']) {
     $productresult = mysqli_query($conn, $productquery);
     if ($productresult) {
 
-        header("Location:./product_Admin.php");
+        header("Location:./product_admin.php");
     }
 }
 $categoryquery = "SELECT * FROM `categories`";

@@ -1,7 +1,5 @@
 <?php
-include('./connect.php');
 include('./header_base.php');
-include("./nav.php");
 
 $product_query = "SELECT * FROM `product`";
 $product_result = mysqli_query($conn, $product_query);
@@ -18,7 +16,7 @@ $category_result = mysqli_query($conn, $category_query);
                     <div class="card-body">
                         <ul class="list-unstyled">
                             <li>
-                                <a class="d-flex justify-content-between text-decoration-none border-0 text-success pb-2" href="Shop.php">Product</a>
+                                <a class="d-flex justify-content-between text-decoration-none border-0 text-success pb-2" href="shop.php">Product</a>
                             </li>
                             <li id="dropdown">
                                 <a class="d-flex justify-content-between text-decoration-none text-success border-0 pb-2">Categories
@@ -140,6 +138,5 @@ $category_result = mysqli_query($conn, $category_query);
     })
 </script>
 <?php
-include("./footer.php");
 include("./footer_base.php");
 ?>

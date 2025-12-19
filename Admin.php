@@ -1,5 +1,5 @@
 <?php
-include "./Connect.php";
+include "./connect.php";
 include('./header_base.php');
 include("./nav.php");
 
@@ -33,9 +33,9 @@ $user_result = mysqli_query($conn, $user_query);
         <div class="col-lg-4">
             <div class="card shadow">
                 <div class="card-body">
-                    <a class="list-group-item border-0 text-success mb-1" href="product_Admin.php">Product</a>
+                    <a class="list-group-item border-0 text-success mb-1" href="product_admin.php">Product</a>
                     <a class="list-group-item text-success border-0 mb-1" href="categories_Admin.php">Categories</a>
-                    <a class="list-group-item text-success border-0 mb-1" href="support_Admin.php">Support</a>
+                    <a class="list-group-item text-success border-0 mb-1" href="support_admin.php">Support</a>
                     <a class="list-group-item text-success border-0 mb-1" href="#">Orders</a>
                 </div>
             </div>

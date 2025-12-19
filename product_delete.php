@@ -10,7 +10,7 @@ $productquery = "DELETE FROM `product` WHERE `id`= $id";
 $productresult = mysqli_query($conn, $productquery);
 
 if ($productresult) {
-    header("Location:./product_Admin.php");
+    header("Location:./product_admin.php");
 } else {
     echo 'failed';
 }

@@ -1,7 +1,5 @@
 <?php
-include "./connect.php";
 include('./header_base.php');
-include("./nav.php");
 
 if (isset($_POST['submit_contact']) && $_POST['submit_contact']) {
   $name    = $_POST['name'];
@@ -66,6 +64,5 @@ if (isset($_POST['submit_contact']) && $_POST['submit_contact']) {
   </div>
 </div>
 <?php
-include("./footer.php");
 include("./footer_base.php");
 ?>

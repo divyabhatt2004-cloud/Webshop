@@ -24,7 +24,7 @@ if (isset($_POST['update_contact']) && $_POST['update_contact']) {
     $resultuserupdate = mysqli_query($conn, $queryuserupdate);
 
     if ($resultuserupdate) {
-        header("Location:./support_Admin.php");
+        header("Location:./support_admin.php");
     } else {
         echo 'failed';
     }

@@ -1,7 +1,5 @@
 <?php
-include('./connect.php');
 include('./header_base.php');
-include("./nav.php");
 ?>
 <section class="bg-success">
     <div class="container pt-5 pb-5">
@@ -147,6 +145,5 @@ include("./nav.php");
     </div>
 </section>
 <?php
-include("./footer.php");
 include("./footer_base.php");
 ?>

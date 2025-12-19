@@ -47,7 +47,7 @@ if (isset($_POST['update_product']) && $_POST['update_product']) {
     $update_Productquery = "UPDATE `product` SET `product name`='$product_name',`image`='$filename',`description`='$description',`quantity`='$quantity',`category`='$category',`price`='$price',`gst`='$gst' WHERE `id`= $id ";
     $update_Productresult = mysqli_query($conn, $update_Productquery);
     if ($update_Productresult) {
-        header("Location:./product_Admin.php");
+        header("Location:./product_admin.php");
     }
 }
 

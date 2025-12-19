@@ -1,5 +1,5 @@
 <?php
-include "./Connect.php";
+include "./connect.php";
 include('./header_base.php');
 include("./nav.php");
 
@@ -15,9 +15,9 @@ $categoryresult = mysqli_query($conn, $categoryquery);
         <div class="col-lg-4">
             <div class="card shadow">
                 <div class="card-body">
-                    <a class="list-group-item border-0 text-success mb-1" href="product_Admin.php">Product</a>
+                    <a class="list-group-item border-0 text-success mb-1" href="product_admin.php">Product</a>
                     <a class="list-group-item text-success border-0 mb-1" href="categories_Admin.php">Categories</a>
-                    <a class="list-group-item text-success border-0 mb-1" href="support_Admin.php">Support</a>
+                    <a class="list-group-item text-success border-0 mb-1" href="support_admin.php">Support</a>
                     <a class="list-group-item text-success border-0 mb-1" href="#">Orders</a>
                 </div>
             </div>
@@ -27,7 +27,7 @@ $categoryresult = mysqli_query($conn, $categoryquery);
                 <div class="card-body">
                     <div class="row text-end border-bottom pb-2">
                         <div class=" offset-10 col-lg-2">
-                            <button class="btn btn-success"><a href="Categories_Create.php" class="text-white text-decoration-none">Create <i class="fa-solid fa-circle-plus"></i></a></button>
+                            <button class="btn btn-success"><a href="categories_create.php" class="text-white text-decoration-none">Create <i class="fa-solid fa-circle-plus"></i></a></button>
                         </div>
                     </div>
                     <div>
@@ -52,7 +52,7 @@ $categoryresult = mysqli_query($conn, $categoryquery);
                                         <td><?php echo $categoryrows['category name'] ?></td>
                                         <td><?php echo $categoryrows['category type'] ?></td>
                                         <td><?php echo $categoryrows['description'] ?></td>
-                                        <td><a class="text-success ms-2" href="Category_Update.php?id=<?php echo $categoryrows['id']; ?>"><i class="fa-solid fa-pen"></i></a><a class="text-danger ms-2" href="Categaory_Delete.php?id=<?php echo $categoryrows['id']; ?>"><i class="fa-solid fa-trash-can"></i></a></td>
+                                        <td><a class="text-success ms-2" href="category_update.php?id=<?php echo $categoryrows['id']; ?>"><i class="fa-solid fa-pen"></i></a><a class="text-danger ms-2" href="categaory_delete.php?id=<?php echo $categoryrows['id']; ?>"><i class="fa-solid fa-trash-can"></i></a></td>
                                     </tr>
                                 <?php
                                 }

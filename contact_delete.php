@@ -12,7 +12,7 @@ $userquery = "DELETE FROM `contact_us` WHERE `id`= $id";
 $userresult = mysqli_query($conn, $userquery);
 
 if ($userresult) {
-    header("Location:./support_Admin.php");
+    header("Location:./support_admin.php");
 } else {
     echo 'failed';
 }
