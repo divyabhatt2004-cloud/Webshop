@@ -1,7 +1,5 @@
 <?php
-include "./connect.php";
 include('./header_base.php');
-include("./nav.php");
 
 if (!$_SESSION['isLogin']) {
     header('Location:login.php');
