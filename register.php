@@ -1,5 +1,4 @@
 <?php
-include "./connect.php";
 include('./header_base.php');
 
 $error = null;

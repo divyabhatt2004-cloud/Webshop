@@ -1,5 +1,4 @@
 <?php
-include "./connect.php";
 include('./header_base.php');
 
 if (isset($_POST["login_user"]) && $_POST["login_user"]) {

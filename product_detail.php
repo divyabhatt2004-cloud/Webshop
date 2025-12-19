@@ -1,7 +1,5 @@
 <?php
-include('./connect.php');
 include('./header_base.php');
-include("./nav.php");
 
 $id = $_GET['id'];
 
@@ -87,6 +85,5 @@ $productdetail_row = mysqli_fetch_assoc($Productdetail_result);
     })
 </script>
 <?php
-include("./footer.php");
 include("./footer_base.php");
 ?>
