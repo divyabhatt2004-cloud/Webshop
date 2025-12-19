@@ -1,13 +1,12 @@
 <?php
-include "./connect.php";
+
 include('./header_base.php');
-include("./nav.php");
 
-if (!$_SESSION['isLogin']) {
+// if (!$_SESSION['isLogin']) {
 
-    header('Location:login.php');
+//     header('Location:login.php');
 
-} else {
+// } else {
     $id = $_SESSION['user_id'];
     $user_checkQuery = "SELECT `user_type` FROM `user` WHERE `id`='$id'";
     $user_checkResult = mysqli_query($conn, $user_checkQuery);
@@ -17,7 +16,7 @@ if (!$_SESSION['isLogin']) {
     } else {
         header('Location:index.php');
     }
-}
+// }
 
 $query = 'SELECT * FROM `contact_us`';
 $result = mysqli_query($conn, $query);
@@ -85,6 +84,5 @@ $user_result = mysqli_query($conn, $user_query);
     </div>
 </div>
 <?php
-include("./footer.php");
 include("./footer_base.php");
 ?>
