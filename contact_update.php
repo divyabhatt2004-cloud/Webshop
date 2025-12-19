@@ -1,11 +1,5 @@
 <?php
-include "./connect.php";
 include('./header_base.php');
-include("./nav.php");
-
-if (!$_SESSION['isLogin']) {
-    header('Location:login.php');
-}
 
 $id = $_GET["id"];
 $userquery = "SELECT * FROM `contact_us` WHERE `id`= $id";
@@ -77,6 +71,5 @@ if (isset($_POST['update_contact']) && $_POST['update_contact']) {
     </div>
 </div>
 <?php
-include("./footer.php");
 include("./footer_base.php");
 ?>

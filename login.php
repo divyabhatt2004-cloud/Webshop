@@ -7,6 +7,7 @@ if (isset($_POST["login_user"]) && $_POST["login_user"]) {
     $userlogin_password = $_POST["loguser_password"];
 
     $userLogin_query = "SELECT * FROM `user` WHERE `email`= '$userlogin_email' AND `password`= '$userlogin_password'";
+
     $userLogin_result = mysqli_query($conn, $userLogin_query);
 
     if (mysqli_num_rows($userLogin_result) > 0) {

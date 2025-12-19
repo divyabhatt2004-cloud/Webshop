@@ -1,7 +1,5 @@
 <?php
-include('./connect.php');
 include('./header_base.php');
-include("./nav.php");
 
 if (!$_SESSION['isLogin']) {
     header('Location:login.php');
@@ -57,6 +55,5 @@ if (isset($_POST['savecate']) && $_POST['savecate']) {
     </div>
 </div>
 <?php
-include("./footer.php");
 include("./footer_base.php");
 ?>
