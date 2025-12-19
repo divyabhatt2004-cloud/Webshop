@@ -1,11 +1,6 @@
 <?php
 include('./connect.php');
 
-if(!$_SESSION['isLogin'])
-{
-    header('Location:login.php');
-}
-
 $id = $_GET['id'];
 $quantity = $_GET['quantity'] ?? 1;
 

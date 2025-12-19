@@ -1,7 +1,5 @@
 <?php
-include "./connect.php";
 include('./header_base.php');
-include("./nav.php");
 
 $Cart_Query = "SELECT * FROM `cart`";
 $Cart_Result = mysqli_query($conn, $Cart_Query);
@@ -123,6 +121,5 @@ if (isset($_POST['user_address']) && $_POST['user_address']) {
     </div>
 </div>
 <?php
-include("./footer.php");
 include("./footer_base.php");
 ?>

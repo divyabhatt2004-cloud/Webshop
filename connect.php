@@ -5,8 +5,10 @@ if (!$conn) {
     echo "Connetion failed";
 }else{
     session_start();
-    
-    $_SESSION['isLogin'] =false;
-    $_SESSION["user_type"] = 'user';
+
+    $userLoginRequired = ['product_cart.php','checkout.php'];
+    if (in_array(basename($_SERVER['PHP_SELF']), $userLoginRequired)) {
+        header('Location:login.php');
+    }
 }
 ?>

@@ -1,7 +1,5 @@
 <?php
-include "./connect.php";
 include('./header_base.php');
-include("./nav.php");
 
 if (!$_SESSION['isLogin']) {
 
@@ -85,6 +83,5 @@ $user_result = mysqli_query($conn, $user_query);
     </div>
 </div>
 <?php
-include("./footer.php");
 include("./footer_base.php");
 ?>

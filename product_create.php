@@ -1,7 +1,5 @@
 <?php
-include('./connect.php');
 include('./header_base.php');
-include("./nav.php");
 
 if (!$_SESSION['isLogin']) {
     header('Location:login.php');
@@ -113,6 +111,5 @@ $categorydata = mysqli_query($conn, $categoryquery);
     </div>
 </div>
 <?php
-include("./footer.php");
 include("./footer_base.php");
 ?>
