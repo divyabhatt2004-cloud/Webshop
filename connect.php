@@ -7,6 +7,5 @@ if (!$conn) {
     session_start();
     
     $_SESSION['isLogin'] = false;
-    $_SESSION["user_type"] = 'user';
 }
 ?>
