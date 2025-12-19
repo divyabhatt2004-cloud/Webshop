@@ -82,7 +82,7 @@ if (isset($_POST["login_user"]) && $_POST["login_user"]) {
                                 </div>
                                 <div class="row justify-content-center mb-2">
                                     <div class="col-12 mb-3 text-end">
-                                        <a href="forget_password.php"> Forget password?</a>
+                                        <a href="forgot_password.php"> Forget password?</a>
                                     </div>
                                 </div>
 

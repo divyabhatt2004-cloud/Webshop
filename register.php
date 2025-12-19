@@ -125,7 +125,7 @@ if (isset($_POST['save_user']) && $_POST['save_user']) {
                                         <label for="check1" class="form-check-label">remember me</label>
                                     </div>
                                     <div class="col-6 mb-3 text-end">
-                                        <a href="forget_password.php">Forget password?</a>
+                                        <a href="forgot_password.php">Forget password?</a>
                                     </div>
                                 </div>
                                 <div class="row text-center">

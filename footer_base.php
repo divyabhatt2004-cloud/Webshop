@@ -1,5 +1,5 @@
 <?php
-if (!in_array(basename($_SERVER['PHP_SELF']), ['login.php', 'register.php'])) {
+if (!in_array(basename($_SERVER['PHP_SELF']), ['login.php', 'register.php' ,'forgot_password.php'])) {
     ?>
     <footer class="bg-dark" id="footer">
         <div class="container">

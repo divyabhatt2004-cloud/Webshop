@@ -22,7 +22,7 @@ include('./connect.php');
 
 <body>
 <?php
-if (!in_array(basename($_SERVER['PHP_SELF']), ['login.php', 'register.php'])) {
+if (!in_array(basename($_SERVER['PHP_SELF']), ['login.php', 'register.php' ,'forgot_password.php'])) {
 ?>
 <nav class="navbar navbar-expand-lg p-0 bg-dark navbar-light d-none d-lg-block" id="top">
     <div class="container">
