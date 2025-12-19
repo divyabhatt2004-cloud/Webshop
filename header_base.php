@@ -1,7 +1,7 @@
 <?php
 include('./connect.php');
 $userLoginRequired = ['product_cart.php','checkout.php','admin.php'];
-if (in_array(basename($_SERVER['PHP_SELF']), $userLoginRequired)) {
+if (!$_SESSION['isLogin'] && in_array(basename($_SERVER['PHP_SELF']), $userLoginRequired)) {
     header('Location:login.php');
 }
 ?>
