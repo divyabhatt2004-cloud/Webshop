@@ -1,5 +1,9 @@
 <?php
 include('./connect.php');
+$userLoginRequired = ['product_cart.php'];
+if (in_array(basename($_SERVER['PHP_SELF']), $userLoginRequired)) {
+    header('Location:login.php');
+} 
 ?>
 <!doctype html>
 <html lang="en">
