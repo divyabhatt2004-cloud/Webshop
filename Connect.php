@@ -1,10 +1,9 @@
 <?php
 $conn = mysqli_connect('localhost','root','','ecommerce');
-  $_SESSION['isLogin'] =false;
+session_start();
+$_SESSION['isLogin'] =false;
+$_SESSION["user_type"] = 'user';
 if (!$conn) {
     echo "Connetion failed";
-}else{
-    session_start();
-
 }
 ?>
