@@ -1,6 +1,6 @@
 <?php
 include('./connect.php');
-$userLoginRequired = ['product_cart.php','checkout.php'];
+$userLoginRequired = ['product_cart.php','checkout.php','admin.php'];
 if (in_array(basename($_SERVER['PHP_SELF']), $userLoginRequired)) {
     header('Location:login.php');
 }
@@ -80,7 +80,7 @@ if (!in_array(basename($_SERVER['PHP_SELF']), ['login.php', 'register.php' ,'for
                         <a class="nav-link text-black" href="contact.php">Contact</a>
                     </li>
                     <?php
-                    if ($_SESSION["user_type"] === 'admin') {
+                    if ($_SESSION["user_type"] == 'admin') {
                         ?>
                         <li class="nav-item px-5">
                             <a class="nav-link text-black" name="admin" href="admin.php">Admin</a>
