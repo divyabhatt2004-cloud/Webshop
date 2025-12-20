@@ -108,7 +108,7 @@ if (!in_array(basename($_SERVER['PHP_SELF']), ['login.php', 'register.php' ,'for
                          <a class="btn btn-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                              <i class="fa-solid fa-user"></i>
                          </a>
-                         <?php  if (isset($_SESSION['isLogin']) && $_SESSION['isLogin']) {
+                         <?php  if ($isLogin) {
                              ?>
                              <ul class="dropdown-menu">
                                  <li><a class="dropdown-item text-success" href="#">Account</a></li>
