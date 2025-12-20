@@ -1,23 +1,11 @@
 <?php
-
 include('./header_base.php');
 
-// if (!$_SESSION['isLogin']) {
-
-//     header('Location:login.php');
-
-// } else {
-    $id = $_SESSION['user_id'];
-    $user_checkQuery = "SELECT `user_type` FROM `user` WHERE `id`='$id'";
-    $user_checkResult = mysqli_query($conn, $user_checkQuery);
-    $user_checkrow = mysqli_fetch_assoc($user_checkResult);
-
-    if ($user_checkrow["user_type"] == 'admin') {
-    } else {
-        header('Location:index.php');
-    }
+// if (isset($_SESSION["user_type"]) && $_SESSION["user_type"] === 'user')
+// {
+//     header('Location: index.php');
+//     exit();
 // }
-
 $query = 'SELECT * FROM `contact_us`';
 $result = mysqli_query($conn, $query);
 
@@ -44,7 +32,7 @@ $user_result = mysqli_query($conn, $user_query);
                 <div class="card-body">
                     <div class="row text-end border-bottom pb-2">
                         <div class=" offset-10 col-lg-2">
-                            <button class="btn btn-success"><a href="Register_User.php" class="text-white text-decoration-none">Create <i class="fa-solid fa-circle-plus"></i></a></button>
+                            <button class="btn btn-success"><a href="register.php" class="text-white text-decoration-none">Create <i class="fa-solid fa-circle-plus"></i></a></button>
                         </div>
                     </div>
                     <div>
