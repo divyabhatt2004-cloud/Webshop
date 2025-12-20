@@ -1,10 +1,6 @@
 <?php
+ob_start();
 include('./header_base.php');
-
-if(!$_SESSION['isLogin'])
-{
-    header('Location:login.php');
-}
 
 $id = $_GET['id'];
 $Productquery = "SELECT * FROM `product` WHERE `id`= $id";
