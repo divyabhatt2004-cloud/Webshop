@@ -1,10 +1,6 @@
 <?php
+ob_start();
 include "./connect.php";
-
-if(!$_SESSION['isLogin'])
-{
-    header('Location:login.php');
-}
 
 $id = $_GET["id"];
 $userquery = "DELETE FROM `contact_us` WHERE `id`= $id";
