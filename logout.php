@@ -5,5 +5,5 @@ $_SESSION["user_id"] = null;
 $_SESSION["user_type"] = null;
 $_SESSION['isLogin'] = false;
 
-header('location:index.php');
+header('Location:index.php');
 ?>
