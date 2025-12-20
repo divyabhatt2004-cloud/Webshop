@@ -1,11 +1,6 @@
 <?php
-include "./connect.php";
+ob_start();
 include('./header_base.php');
-
-if(!$_SESSION['isLogin'])
-{
-    header('Location:login.php');
-}
 
 //$user_query = "SELECT * FROM `user`";
 $Cart_Query = "SELECT * FROM `cart`";
