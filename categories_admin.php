@@ -1,10 +1,6 @@
 <?php
 include('./header_base.php');
 
-if (!$_SESSION['isLogin']) {
-    header('Location:login.php');
-}
-
 $categoryquery = "SELECT * FROM `categories`";
 $categoryresult = mysqli_query($conn, $categoryquery);
 ?>
