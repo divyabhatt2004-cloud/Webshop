@@ -1,8 +1,12 @@
 <?php
 include('./connect.php');
 $userLoginRequired = ['product_cart.php','checkout.php','admin.php'];
-if (!$_SESSION['isLogin'] && in_array(basename($_SERVER['PHP_SELF']), $userLoginRequired)) {
-    header('Location:login.php');
+$isLogin = $_SESSION['isLogin'] ?? false;
+
+if (!$isLogin && in_array(basename($_SERVER['PHP_SELF']), $userLoginRequired))
+{
+    header('Location: login.php');
+    exit;
 }
 ?>
 <!doctype html>
@@ -69,7 +73,7 @@ if (!in_array(basename($_SERVER['PHP_SELF']), ['login.php', 'register.php' ,'for
             <div class="mx-auto">
                 <ul class="navbar-nav" id="headerNav">
                     <li class="nav-item px-5">
-                        <a class="nav-link text-black" aria-current="page" href="index.php">Home</a>
+                        <a class="nav-link text-black" aria-current="page" href="./index.php">Home</a>
                     </li>
                     <li class="nav-item px-5">
                         <a class="nav-link text-black" href="about.php">About</a>
@@ -81,7 +85,7 @@ if (!in_array(basename($_SERVER['PHP_SELF']), ['login.php', 'register.php' ,'for
                         <a class="nav-link text-black" href="contact.php">Contact</a>
                     </li>
                     <?php
-                    if ($_SESSION["user_type"] == 'admin') {
+                    if (isset($_SESSION["user_type"]) && $_SESSION["user_type"] === 'admin') {
                         ?>
                         <li class="nav-item px-5">
                             <a class="nav-link text-black" name="admin" href="admin.php">Admin</a>
@@ -104,7 +108,7 @@ if (!in_array(basename($_SERVER['PHP_SELF']), ['login.php', 'register.php' ,'for
                          <a class="btn btn-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                              <i class="fa-solid fa-user"></i>
                          </a>
-                         <?php  if ($_SESSION['isLogin']) {
+                         <?php  if (isset($_SESSION['isLogin']) && $_SESSION['isLogin']) {
                              ?>
                              <ul class="dropdown-menu">
                                  <li><a class="dropdown-item text-success" href="#">Account</a></li>
