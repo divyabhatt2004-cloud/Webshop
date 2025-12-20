@@ -1,12 +1,14 @@
 <?php
+ob_start();
 include('./header_base.php');
-
+   
 if (isset($_POST['submit_contact']) && $_POST['submit_contact']) {
   $name    = $_POST['name'];
   $email   = $_POST['email'];
   $subject = $_POST['subject'];
   $mesaage = $_POST['message'];
-
+  
+if(isset($_SESSION['isLogin']) && $_SESSION['isLogin'] === true){
   $contact_query = "INSERT INTO `contact_us`(`name`, `email`, `subject`, `message`) VALUES ('$name','$email','$subject','$mesaage')";
 
   $contact_result = mysqli_query($conn, $contact_query);
@@ -14,6 +16,11 @@ if (isset($_POST['submit_contact']) && $_POST['submit_contact']) {
   if (!$contact_result) {
     echo "submittion failed";
   }
+  }
+else{
+  // echo 'error';
+header('Location:./login.php');
+}
 }
 ?>
 <div class="container-fluid pt-5">
