@@ -1,13 +1,27 @@
 <?php
 include('./connect.php');
-$userLoginRequired = ['product_cart.php','checkout.php','admin.php'];
+$userLoginRequired = ['product_cart.php','cart_checkout.php','admin.php','add_to_cart.php','categaory_delete.php',
+'categories_admin.php','categories_create.php','category_update.php','contact_delete.php','contact_update.php',
+'delete_from_cart.php','order_process.php','product_admin.php','product_create.php','product_delete.php','product_update.php',
+'support_admin.php'];
+$userTypecheck = ['admin.php','categaory_delete.php','categories_admin.php','categories_create.php','category_update.php','contact_delete.php',
+'contact_update.php','product_admin.php','product_create.php',
+'product_delete.php','product_update.php','support_admin.php'];
 $isLogin = $_SESSION['isLogin'] ?? false;
+
 
 if (!$isLogin && in_array(basename($_SERVER['PHP_SELF']), $userLoginRequired))
 {
     header('Location: login.php');
     exit;
 }
+
+if ((isset($_SESSION["user_type"]) && $_SESSION["user_type"] === 'user') && in_array(basename($_SERVER['PHP_SELF']), $userTypecheck))
+{
+    header('Location: index.php');
+    exit;
+}
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -86,11 +100,11 @@ if (!in_array(basename($_SERVER['PHP_SELF']), ['login.php', 'register.php' ,'for
                     </li>
                     <?php
                     if (isset($_SESSION["user_type"]) && $_SESSION["user_type"] === 'admin') {
-                        ?>
+                    ?>
                         <li class="nav-item px-5">
                             <a class="nav-link text-black" name="admin" href="admin.php">Admin</a>
                         </li>
-                        <?php
+                    <?php
                     }
                     ?>
                 </ul>
