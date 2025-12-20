@@ -1,9 +1,6 @@
 <?php
+ob_start();
 include('./header_base.php');
-
-if (!$_SESSION['isLogin']) {
-    header('Location:login.php');
-}
 
 if (isset($_POST['savecate']) && $_POST['savecate']) {
     $catename    = $_POST['cname'];
