@@ -1,10 +1,6 @@
 <?php
 include('./header_base.php');
 
-if (!$_SESSION['isLogin']) {
-    header('Location:login.php');
-}
-
 $userquery = 'SELECT * FROM `contact_us`';
 $userresult = mysqli_query($conn, $userquery);
 ?>
@@ -79,6 +75,5 @@ $userresult = mysqli_query($conn, $userquery);
     })
 </script>
 <?php
-include("./footer.php");
 include("./footer_base.php");
 ?>
