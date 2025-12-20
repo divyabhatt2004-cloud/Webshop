@@ -1,4 +1,5 @@
 <?php
+ob_start();
 include('./header_base.php');
 
 $id = $_GET["id"];
