@@ -13,7 +13,7 @@ if (!mysqli_num_rows($Cart_Result)) {
     $productCart_query = "SELECT * FROM `product` WHERE `id`= $id";
     $productCart_result = mysqli_query($conn, $productCart_query);
     $productCart_row = mysqli_fetch_assoc($productCart_result);
-
+    $user_id = $_SESSION["user_id"];
     $Cartproduct_id = $productCart_row['id'];
     $Cartproduct_name = $productCart_row['product name'];
     $Cartproduct_description = $productCart_row['description'];
@@ -23,22 +23,22 @@ if (!mysqli_num_rows($Cart_Result)) {
     $Cartproduct_gst = $productCart_row['gst'];
 
 
-    $Cartdata_query = "INSERT INTO `cart`(`product_id`,`product name`, `description`, `image`, `quantity`, `price`,`gst`)  VALUES ('$Cartproduct_id', '$Cartproduct_name','$Cartproduct_description','$Cartproduct_image','$Cartproduct_quantity','$Cartproduct_price','$Cartproduct_gst')";
+    $Cartdata_query = "INSERT INTO `cart`(`user_id`,`product_id`,`product name`, `description`, `image`, `quantity`, `price`,`gst`) 
+    VALUES ('$user_id','$Cartproduct_id', '$Cartproduct_name','$Cartproduct_description','$Cartproduct_image','$Cartproduct_quantity','$Cartproduct_price','$Cartproduct_gst')";
     $Cartdata_result = mysqli_query($conn, $Cartdata_query);
 
     if ($Cartdata_result) {
         header('location:shop.php');
     }
 } else {
-        $Cart_row["quantity"] = $Cart_row["quantity"] + $quantity ;
-        $cart_quantity = $Cart_row["quantity"];
-        $Cart_update_query = "UPDATE `cart` SET `quantity`='$cart_quantity' WHERE `product_id`= $id";
-        $Cart_update_Result = mysqli_query($conn, $Cart_update_query);
+    $Cart_row["quantity"] = $Cart_row["quantity"] + $quantity;
+    $cart_quantity = $Cart_row["quantity"];
+    $Cart_update_query = "UPDATE `cart` SET `quantity`='$cart_quantity' WHERE `product_id`= $id";
+    $Cart_update_Result = mysqli_query($conn, $Cart_update_query);
 
-        if ($Cart_update_Result) {
-            header('location:shop.php');
-        }
-        else{
-            echo'error';
-        }
+    if ($Cart_update_Result) {
+        header('location:shop.php');
+    } else {
+        echo 'error';
     }
+}
