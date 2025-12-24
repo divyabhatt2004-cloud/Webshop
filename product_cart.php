@@ -1,6 +1,7 @@
 <?php
 include('./header_base.php');
-$Cart_Query = "SELECT * FROM `cart`";
+$id = $_SESSION["user_id"];
+$Cart_Query = "SELECT * FROM `cart` WHERE `user_id`= '$id'";
 $Cart_Result = mysqli_query($conn, $Cart_Query);
 ?>
 <section>
@@ -26,8 +27,6 @@ $Cart_Result = mysqli_query($conn, $Cart_Query);
                     while ($Cart_rows = mysqli_fetch_assoc($Cart_Result)) {
                         $sno++;
                         $sub_amount += $Cart_rows["price"] * $Cart_rows['quantity'];
-
-
                     ?>
                         <tr>
                             <td><?php echo   $sno; ?></td>
@@ -56,7 +55,6 @@ $Cart_Result = mysqli_query($conn, $Cart_Query);
                 </tbody>
             </table>
         </div>
-
         <div class="row">
             <div class="col-4 offset-8">
                 <div class="card mb-5">
@@ -78,7 +76,7 @@ $Cart_Result = mysqli_query($conn, $Cart_Query);
                                     <?php echo '$' . $sub_amount + $gst_amount . '.00'; ?>
                                 </div>
                                 <div class="mt-2">
-                                    <a class="btn btn-success text-white" href="cart_Checkout.php?id=<?php echo $_SESSION["user_id"]; ?>">Checkout</a>
+                                    <a class="btn btn-success text-white" href="cart_Checkout.php">Checkout</a>
                                 </div>
                             </div>
                         </div>
