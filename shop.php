@@ -14,7 +14,6 @@ $fav_Result = mysqli_query($conn, $fav_Query);
 // $fav_rows = mysqli_fetch_assoc($fav_Result);
 ?>
 <section class=" pt-5 pb-5">
-    <p id="demo"></p>
     <div class="container">
         <div class="row">
             <div class="col-lg-4">
