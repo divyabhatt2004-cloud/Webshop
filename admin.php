@@ -17,7 +17,7 @@ $user_result = mysqli_query($conn, $user_query);
 ?>
 <div class="container pt-5 pb-5">
     <div class="row">
-        <div class="col-lg-4">
+        <div class="col-md-4">
             <div class="card shadow">
                 <div class="card-body">
                     <a class="list-group-item border-0 text-success mb-1" href="product_admin.php">Product</a>
