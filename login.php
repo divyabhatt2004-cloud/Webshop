@@ -25,7 +25,6 @@ if (isset($_POST["login_user"]) && $_POST["login_user"]) {
         echo 'error';
     }
 }
-
 ?>
 <div class="container">
     <div class="row justify-content-center">
@@ -52,16 +51,11 @@ if (isset($_POST["login_user"]) && $_POST["login_user"]) {
                             <span class="rounded-circle bg-primary text-white me-2 text-center p-1">
                                 <i class="fa-brands fa-linkedin-in"></i>
                             </span>
-
                         </div>
-
-
                         <div class="col-12 text-center">
                             <span>Or:</span>
                         </div>
-
                     </div>
-
                     <div class="row justify-content-center">
                         <div class="col-lg-6 col-sm-8">
                             <form method="post">
