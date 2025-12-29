@@ -169,31 +169,6 @@ if (isset($_POST['save_user']) && $_POST['save_user']) {
                 x.type = "password";
             }
         })
-
-        // $('#reg_user').on('click', function(e) {
-        //     e.preventDefault();
-        //     let password = $('#user_password').val();
-        //     let password_confirm = $('#confirmUser_password').val();
-
-        //     if (password != password_confirm) {
-        //         $('#alertmsg').toggleClass('d-none');
-        //     }
-        //     else{
-        //         $("#reg_user").on('click',function(){
-        //             let FormData = $('form').serialize();
-        //           $.ajax(
-        //            {
-        //              type: 'post',
-        //              data:FormData,
-
-        //            }
-
-        //           )
-        //         })
-        //     }
-
-        // })
-
     })
 </script>
 <?php 
