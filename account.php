@@ -40,7 +40,7 @@ if (isset($_POST['user_address']) && $_POST['user_address']) {
                     <a class="list-group-item border-0 text-success mb-1" href="account.php">Personal data</a>
                     <a class="list-group-item text-success border-0 mb-1" href="wishlist.php">Wishlist</a>
                     <a class="list-group-item text-success border-0 mb-1" href="#">Orders</a>
-                    <a class="list-group-item text-success border-0 mb-1" href="change_password.php">Change password</a>
+                    <a class="list-group-item text-success border-0 mb-1" href="verify.php">Change password</a>
                     <a class="list-group-item text-success border-0 mb-1" href="logout.php">Log out</a>
                 </div>
             </div>
