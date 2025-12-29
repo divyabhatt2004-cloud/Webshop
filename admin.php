@@ -1,11 +1,6 @@
 <?php
 include('./header_base.php');
 
-// if (isset($_SESSION["user_type"]) && $_SESSION["user_type"] === 'user')
-// {
-//     header('Location: index.php');
-//     exit();
-// }
 $query = 'SELECT * FROM `contact_us`';
 $result = mysqli_query($conn, $query);
 
@@ -57,9 +52,26 @@ $user_result = mysqli_query($conn, $user_query);
                                         <td><?php echo   $user_rows['name']; ?></td>
                                         <td><?php echo   $user_rows['email']; ?></td>
                                         <td><?php echo   $user_rows['password']; ?></td>
-                                        <td><a class="text-success me-1"><i class="fa-solid fa-check"></i></a><a class="text-danger"><i class="fa-solid fa-trash-can"></i></a></td>
+                                        <td>
+                                            <a class="text-success me-1" id="user">
+                                                <?php if($user_rows['active'] == 1 )
+                                                { ?> 
+                                                <i class="fa-solid fa-check" id="user_active"></i>
+                                                <?php 
+                                                }else
+                                                {
+                                                ?>
+                                                <i class="fa-solid fa-xmark text-danger" id="user_active"></i>
+                                                <?php
+                                                }
+                                                ?>
+                                            </a>
+                                            <a class="text-danger">
+                                                <i class="fa-solid fa-trash-can"></i>
+                                            </a>
+                                        </td>
                                     </tr>
-                                    <!-- <i class="fa-solid fa-xmark"></i> -->
+                                    <!-- <i class="fa-solid fa-xmark>"</i> -->
                                 <?php
                                 }
                                 ?>
@@ -71,6 +83,31 @@ $user_result = mysqli_query($conn, $user_query);
         </div>
     </div>
 </div>
+<script>
+     $(document).ready(function() {
+
+        $('#user i').on('click', function() {
+            $(this).toggleClass('fa-check fa-xmark');
+            var x = document.getElementById("user_active");
+                <?php
+                  $id = $_GET['id'];
+                 $update_active = "UPDATE `user` SET `active`='0' WHERE `id`='$id'";
+                 $query = mysqli_query($conn, $update_active);
+                ?>
+            })
+            $('#user i').on('click', function() {
+            $(this).toggleClass('fa-xmark fa-check');
+            var x = document.getElementById("user_active");
+                <?php
+                  $id = $_GET['id'];
+                 $update_active = "UPDATE `user` SET `active`='1' WHERE `id`='$id'";
+                 $query = mysqli_query($conn, $update_active);
+                ?>
+            })
+                
+       
+    })
+    </script>
 <?php
 
 include("./footer_base.php");
