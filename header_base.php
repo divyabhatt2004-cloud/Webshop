@@ -3,7 +3,7 @@ include('./connect.php');
 $userLoginRequired = ['product_cart.php','cart_checkout.php','admin.php','add_to_cart.php','categaory_delete.php',
 'categories_admin.php','categories_create.php','category_update.php','contact_delete.php','contact_update.php',
 'delete_from_cart.php','order_process.php','product_admin.php','product_create.php','product_delete.php','product_update.php',
-'support_admin.php'];
+'support_admin.php','account.php','wishlist.php','logout.php','verify.php'];
 $userTypecheck = ['admin.php','categaory_delete.php','categories_admin.php','categories_create.php','category_update.php','contact_delete.php',
 'contact_update.php','product_admin.php','product_create.php',
 'product_delete.php','product_update.php','support_admin.php'];
@@ -45,7 +45,7 @@ if ((isset($_SESSION["user_type"]) && $_SESSION["user_type"] === 'user') && in_a
 
 <body>
 <?php
-if (!in_array(basename($_SERVER['PHP_SELF']), ['login.php', 'register.php' ,'forgot_password.php'])) {
+if (!in_array(basename($_SERVER['PHP_SELF']), ['login.php', 'register.php' ,'forgot_password.php','password_change.php'])) {
 ?>
 <nav class="navbar navbar-expand-lg p-0 bg-dark navbar-light d-none d-lg-block" id="top">
     <div class="container">
