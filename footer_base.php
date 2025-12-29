@@ -57,19 +57,19 @@ if (!in_array(basename($_SERVER['PHP_SELF']), ['login.php', 'register.php' ,'for
                     <h1 class="text-success border-bottom mb-5 pb-3">Further Info</h1>
                     <ul class="text-light list-unstyled">
                         <li class="mb-2">
-                            <a class="text-decoration-none text-light" href="#">Home</a>
+                            <a class="text-decoration-none text-light" href="index.php">Home</a>
                         </li>
                         <li class="mb-2">
-                            <a class="text-decoration-none text-light" href="#">About Us</a>
+                            <a class="text-decoration-none text-light" href="about.php">About Us</a>
                         </li>
                         <li class="mb-2">
-                            <a class="text-decoration-none text-light" href="#">Shop Locations</a>
+                            <a class="text-decoration-none text-light" href="shop.php">Shop Locations</a>
                         </li>
                         <li class="mb-2">
                             <a class="text-decoration-none text-light" href="#">FAQs</a>
                         </li>
                         <li class="mb-2">
-                            <a class="text-decoration-none text-light" href="#">Contact</a>
+                            <a class="text-decoration-none text-light" href="contact.php">Contact</a>
                         </li>
                     </ul>
                 </div>
