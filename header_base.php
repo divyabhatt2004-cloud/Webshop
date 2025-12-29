@@ -125,7 +125,7 @@ if (!in_array(basename($_SERVER['PHP_SELF']), ['login.php', 'register.php' ,'for
                          <?php  if ($isLogin) {
                              ?>
                              <ul class="dropdown-menu">
-                                 <li><a class="dropdown-item text-success" href="#">Account</a></li>
+                                 <li><a class="dropdown-item text-success" href="account.php">Account</a></li>
                                  <li><a class="dropdown-item text-success" href="logout.php">Log out</a></li>
                              </ul>
                              <?php
