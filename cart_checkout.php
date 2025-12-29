@@ -6,7 +6,7 @@ $Cart_Query = "SELECT * FROM `cart`";
 $Cart_Result = mysqli_query($conn, $Cart_Query);
 
 $id = $_SESSION["user_id"];
-$user_query = "SELECT `user_name`, `user_email` FROM `user_details` WHERE `user_id`= '$id'";
+$user_query = "SELECT * FROM `user_details` WHERE `user_id`= '$id'";
 $user_result = mysqli_query($conn, $user_query);
 $user_row = mysqli_fetch_assoc($user_result);
 
@@ -37,7 +37,7 @@ if (isset($_POST['user_address']) && $_POST['user_address']) {
 <div class="container mb-5">
     <form method="post">
         <div class="row mt-5">
-            <div class="col-lg-8">
+            <div class="col-md-8 mb-3">
                 <div class="card shadow">
                     <div class="card-body">
                         <div>
@@ -60,50 +60,50 @@ if (isset($_POST['user_address']) && $_POST['user_address']) {
                                 <div class="col-md-12">
                                     <label for="house_no" class="form-label">House Number</label>
                                     <input type="text" class="form-control" name="house_no" id="house_no"
-                                        placeholder="House no.">
+                                        placeholder="House no." value="<?php echo $user_row['house_number']; ?>" required>
                                 </div>
                             </div>
                             <div class="row mt-2 mb-2">
                                 <div class="col-md-6">
                                     <label for="user_street" class="form-label">Street</label>
                                     <input type="text" class="form-control" name="user_street" id="user_street"
-                                        placeholder="Street" required>
+                                        placeholder="Street" value="<?php echo $user_row['street']; ?>" required>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="user_locality" class="form-label">Locality</label>
                                     <input type="text" class="form-control" name="user_locality" id="user_locality"
-                                        placeholder="Locality" required>
+                                        placeholder="Locality" value="<?php echo $user_row['locality']; ?>" required>
                                 </div>
                             </div>
                             <div class="row mt-2 mb-2">
                                 <div class="col-md-6">
                                     <label for="user_city" class="form-label">City</label>
                                     <input type="text" class="form-control" name="user_city" id="user_city"
-                                        placeholder="City" required>
+                                        placeholder="City" value="<?php echo $user_row['city']; ?>" required>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="user_state" class="form-label">State</label>
                                     <input type="text" class="form-control" name="user_state" id="user_state"
-                                        placeholder="State" required>
+                                        placeholder="State" value="<?php echo $user_row['state']; ?>" required>
                                 </div>
                             </div>
                             <div class="row mt-2 mb-2">
                                 <div class="col-md-6">
                                     <label for="user_pincode" class="form-label">Pincode</label>
                                     <input type="text" class="form-control" name="user_pincode" id="user_pincode"
-                                        placeholder="Pincode" required>
+                                        placeholder="Pincode" value="<?php echo $user_row['pincode']; ?>" required>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="user_country" class="form-label">Contury</label>
                                     <input type="text" class="form-control" name="user_country" id="user_country"
-                                        placeholder="Contury" required>
+                                        placeholder="Contury" value="<?php echo $user_row['country']; ?>" required>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-4">
+            <div class="col-md-4">
                 <div class="card mb-5 shadow">
                     <div class="card-body">
                         <div class="row mb-2">
