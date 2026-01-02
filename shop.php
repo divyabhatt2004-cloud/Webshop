@@ -1,17 +1,29 @@
 <?php
 include('./header_base.php');
 
-$id = $_SESSION["user_id"];
+$id = $_SESSION["user_id"] ?? 0;
 
 $product_query = "SELECT * FROM `product`";
 $product_result = mysqli_query($conn, $product_query);
+// $product_rows = mysqli_fetch_assoc($product_result);
 
 $category_query = "SELECT * FROM `categories`";
 $category_result = mysqli_query($conn, $category_query);
 
-$fav_Query = "SELECT * FROM `wishlist` WHERE `user_id`= '$id'";
+$fav_Query = "SELECT `id` FROM `wishlist` WHERE `user_id`= '$id'";
 $fav_Result = mysqli_query($conn, $fav_Query);
-// $fav_rows = mysqli_fetch_assoc($fav_Result);
+$fav_rows = mysqli_fetch_all($fav_Result);
+print_r($fav_rows);
+// echo"<br>";
+// foreach($fav_rows as $key => $inner_array){
+//     echo "$inner_array[2] <br>";
+// foreach($inner_array as $inner_key => $value){
+// echo "[2] => $value <br>";
+// }
+// }
+
+// $chec= $product_rows['id'] == $fav_rows[0][2];
+// echo $chec;
 ?>
 <section class=" pt-5 pb-5">
     <div class="container">
@@ -71,32 +83,22 @@ $fav_Result = mysqli_query($conn, $fav_Query);
                     <div class="row text-center">
                         <?php
                         // while($fav_rows = mysqli_fetch_assoc($fav_Result) ){                          
-                        while ($product_rows = mysqli_fetch_assoc($product_result)) {      
+                        while ($product_rows = mysqli_fetch_assoc($product_result)) {
+                                                print_r(in_array($product_rows['id'],$fav_rows));
+
                         ?>
                             <div class="col-md-4 mb-5" id="product">
                                 <div class="card product-wap mb-4 rounded-0" id="productcard">
                                     <div class="position-relative">
-                                        <img src="./productimage/<?php echo $product_rows['image']; ?>" class="card-img rounded-0 img-fluid">  
+                                        <img src="./productimage/<?php echo $product_rows['image']; ?>" class="card-img rounded-0 img-fluid">
                                         <ul class="list-unstyled start-0 end-0" id="actionBtns">
                                             <li>
                                                 <?php 
-                                                // while($fav_rows = mysqli_fetch_assoc($fav_Result) ){
-                                                 ?>
-                                                <a href="add_to_wishlist.php?id=<?php echo $product_rows['id']; ?>" class="text-white btn btn-success opacity-75 p-2 border-0 mb-1 rounded">
-                                                <?php 
-                                                // $product_id = $product_rows['id'];
-                                                
-                                                // if ($product_rows['id'] == $fav_rows['product_id'] ){
-                                                  ?> 
-                                                <!-- <i class="fa-solid fa-heart" id="heart"></i> -->
-                                                <?php
-                                                // } else{
-                                                    ?>
-                                                <i class="fa-regular fa-heart" id="heart"></i>
-                                                <?php
-                                                // }
-                                            // }
+                                                print_r(in_array($product_rows['id'],$fav_rows));
                                                 ?>
+                                                <a href="add_to_wishlist.php?id=<?php echo $product_rows['id']; ?>"
+                                                    class="text-white btn btn-success opacity-75 p-2 border-0 mb-1 rounded">
+                                                        <i class="fa-regular fa-heart"></i>  
                                                 </a>
                                             </li>
                                             <li>
@@ -111,9 +113,6 @@ $fav_Result = mysqli_query($conn, $fav_Query);
                                                 </a>
                                             </li>
                                         </ul>
-                                        <?php
-                                        // }
-                                        ?>
                                     </div>
                                     <div class="card-body p-2 bg-white w-100 h-100">
                                         <div class="row">
@@ -139,7 +138,6 @@ $fav_Result = mysqli_query($conn, $fav_Query);
                             </div>
                         <?php
                         }
-                    // }
                         ?>
                     </div>
                 </div>
@@ -158,9 +156,9 @@ $fav_Result = mysqli_query($conn, $fav_Query);
             $(this).toggleClass('fa-circle-chevron-down fa-circle-chevron-up')
             $('#genderlist').toggleClass('d-none')
         })
-        $('#heart').on('click', function() {
-            $(this).toggleClass('fa-regular fa-solid')
-        })
+        //  $('#heart').on('click', function() {
+        //     $(this).toggleClass('fa-regular fa-solid')
+        // })
     })
 </script>
 <?php

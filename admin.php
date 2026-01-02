@@ -53,7 +53,8 @@ $user_result = mysqli_query($conn, $user_query);
                                         <td><?php echo   $user_rows['email']; ?></td>
                                         <td><?php echo   $user_rows['password']; ?></td>
                                         <td>
-                                            <a class="text-success me-1" id="user">
+                                            <!-- <button class="border-0 bg-white" onclick="active()"> -->
+                                                <a class="text-success me-1" id="active" href="user_update.php?id=<?php echo $user_rows['id']; ?>">
                                                 <?php if($user_rows['active'] == 1 )
                                                 { ?> 
                                                 <i class="fa-solid fa-check" id="user_active"></i>
@@ -61,12 +62,13 @@ $user_result = mysqli_query($conn, $user_query);
                                                 }else
                                                 {
                                                 ?>
-                                                <i class="fa-solid fa-xmark text-danger" id="user_active"></i>
+                                                <i class="fa-solid fa-xmark text-danger" id="user_nonactive"></i>
                                                 <?php
                                                 }
                                                 ?>
                                             </a>
-                                            <a class="text-danger">
+                                        <!-- </button> -->
+                                            <a class="text-danger"href="user_delete.php?id=<?php echo $user_rows['id']; ?>">
                                                 <i class="fa-solid fa-trash-can"></i>
                                             </a>
                                         </td>
@@ -84,29 +86,27 @@ $user_result = mysqli_query($conn, $user_query);
     </div>
 </div>
 <script>
-     $(document).ready(function() {
+    //  $(document).ready(function() {
 
-        $('#user i').on('click', function() {
-            $(this).toggleClass('fa-check fa-xmark');
-            var x = document.getElementById("user_active");
-                <?php
-                  $id = $_GET['id'];
-                 $update_active = "UPDATE `user` SET `active`='0' WHERE `id`='$id'";
-                 $query = mysqli_query($conn, $update_active);
-                ?>
-            })
-            $('#user i').on('click', function() {
-            $(this).toggleClass('fa-xmark fa-check');
-            var x = document.getElementById("user_active");
-                <?php
-                  $id = $_GET['id'];
-                 $update_active = "UPDATE `user` SET `active`='1' WHERE `id`='$id'";
-                 $query = mysqli_query($conn, $update_active);
-                ?>
-            })
-                
-       
-    })
+    //     $('#user_active').on('click', function() {
+    //         $(this).toggleClass('fa-check fa-xmark');
+    //         var x = document.getElementById("user_active");
+    //             <?php
+    //               $id = $_GET['id'];
+    //              $update_active = "UPDATE `user` SET `active`='0' WHERE `id`='$id'";
+    //              $query = mysqli_query($conn, $update_active);
+    //             ?>
+    //         })
+    //         $('#user i').on('click', function() {
+    //         $(this).toggleClass('fa-xmark fa-check');
+    //         var x = document.getElementById("user_active");
+    //             <?php
+    //               $id = $_GET['id'];
+    //              $update_active = "UPDATE `user` SET `active`='1' WHERE `id`='$id'";
+    //              $query = mysqli_query($conn, $update_active);
+    //             ?>
+    //         })
+    // })
     </script>
 <?php
 
