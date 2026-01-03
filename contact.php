@@ -1,26 +1,43 @@
 <?php
 ob_start();
 include('./header_base.php');
-   
+
+$user_id = $_SESSION['user_id'];
+
+// if(mysqli_num_rows($user_result) > 0)
 if (isset($_POST['submit_contact']) && $_POST['submit_contact']) {
   $name    = $_POST['name'];
   $email   = $_POST['email'];
   $subject = $_POST['subject'];
   $mesaage = $_POST['message'];
-  
-if(isset($_SESSION['isLogin']) && $_SESSION['isLogin'] === true){
-  $contact_query = "INSERT INTO `contact_us`(`name`, `email`, `subject`, `message`) VALUES ('$name','$email','$subject','$mesaage')";
 
-  $contact_result = mysqli_query($conn, $contact_query);
+  $user_query = "SELECT * FROM `contact_us` WHERE `user_id`= '$user_id'";
+  $user_result = mysqli_query($conn, $user_query);
 
-  if (!$contact_result) {
-    echo "submittion failed";
+  if (mysqli_num_rows($user_result) == 0) {
+
+    if (isset($_SESSION['isLogin']) && $_SESSION['isLogin'] === true) {
+      $contact_query = "INSERT INTO `contact_us`(`user_id`,`name`, `email`, `subject`, `message`) VALUES ('$user_id','$name','$email','$subject','$mesaage')";
+      $contact_result = mysqli_query($conn, $contact_query);
+
+      if ($contact_result) {
+        header("Location:./contact.php");
+      }
+      else{
+        echo "error";
+      }
+    } else {
+      header('Location:./login.php');
+    }
+  } else {
+    $queryuserupdate = "UPDATE `contact_us` SET `name`='$name',`email`='$email',`subject`='$subject',`message`='$mesaage' WHERE `user_id`= '$user_id'";
+    $resultuserupdate = mysqli_query($conn, $queryuserupdate);
+    if ($resultuserupdate) {
+        header("Location:./contact.php");
+    } else {
+        echo 'failed';
+    }
   }
-  }
-else{
-  // echo 'error';
-header('Location:./login.php');
-}
 }
 ?>
 <div class="container-fluid pt-5">

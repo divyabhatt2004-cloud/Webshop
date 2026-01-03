@@ -89,9 +89,9 @@ $favProductIds = array_column($allFav, 'product_id');
                                             <ul class="list-unstyled start-0 end-0" id="actionBtns">
                                                 <li>
                                                     <?php if (!empty($favProductIds) && in_array($product_row['id'], $favProductIds)) { ?>
-                                                        <a href="remove_to_wishlist.php?id=<?php echo $product_row['id']; ?>"
+                                                        <a href="delete_from_wishlist.php?id=<?php echo $product_row['id']; ?>"
                                                            class="text-white btn btn-success opacity-75 p-2 border-0 mb-1 rounded">
-                                                            <i class="fa-solid fa-heart text-danger"></i>
+                                                            <i class="fa-solid fa-heart"></i>
                                                         </a>
                                                     <?php } else { ?>
                                                         <a href="add_to_wishlist.php?id=<?php echo $product_row['id']; ?>"

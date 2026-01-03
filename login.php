@@ -1,6 +1,8 @@
 <?php
 include('./header_base.php');
 
+$error = null;
+
 if (isset($_POST["login_user"]) && $_POST["login_user"]) {
 
     $userlogin_email = $_POST["userlog_email"];
@@ -22,7 +24,7 @@ if (isset($_POST["login_user"]) && $_POST["login_user"]) {
         header('Location:index.php');
     } else {
         $_SESSION['isLogin'] = false;
-        echo 'error';
+        $error = " Invlid login credentials ";
     }
 }
 ?>
@@ -54,6 +56,15 @@ if (isset($_POST["login_user"]) && $_POST["login_user"]) {
                         </div>
                         <div class="col-12 text-center">
                             <span>Or:</span>
+                        </div>
+                        <div class="row justify-content-center ">
+                            <div class="col-6 text-center">
+                                <div class="alert alert-danger border <?php echo empty($error) ? 'd-none' : ''; ?>" id="alertmsg">
+                                    <p class="text-danger">
+                                        <?php echo $error; ?>
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="row justify-content-center">

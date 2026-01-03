@@ -1,29 +1,24 @@
 <?php
+ob_start();
 include('./header_base.php');
-
 $user_id = $_SESSION['user_id'];
 
 $error = null;
-
 if (isset($_POST['change']) && $_POST['change']) {
- 
     $user_password = $_POST['user_password'];
     $user_confirm_password = $_POST['confirmUser_password'];
-    
+
     if ($user_password == $user_confirm_password) {
 
-    $change_password_query = "UPDATE `user` SET `password`='$user_password' WHERE `id`='$user_id'";
-    $change_password_result = mysqli_query($conn, $change_password_query);
+        $change_password_query = "UPDATE `user` SET `password`='$user_password' WHERE `id`='$user_id'";
+        $change_password_result = mysqli_query($conn, $change_password_query);
 
-        if (!($change_password_result)){
+        if ($change_password_result) {
+            header("Location:./index.php");
+        } else {
             $error = "failed to change password";
-            exit;
         }
-        else{
-            header('location:index.php');
-        }
-    }
-    else{
+    } else {
         $error = "Password doesn't match";
     }
 }
